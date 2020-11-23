@@ -1,0 +1,26 @@
+.btn-group {
+    margin-right: -50px;
+}
+
+.btn:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0
+}
+
+#usr-avator {
+    height: 30px;
+    width: auto;
+}
+
+ul.dropdown-menu {
+    background-color: #333333;
+}
+
+li {
+    background-color: #333333;
+}
+
+a.dropdown-item {
+    color: white;
+    background-color: #333333;
+}

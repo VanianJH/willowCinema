@@ -1,0 +1,49 @@
+.row {
+  margin-left: -50px;
+  margin-right: -50px;
+}
+
+.moviegrid-item {
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.moviegrid-item .moviegrid-play-trailer {
+  display: block;
+  position: absolute;
+  top: 100px;
+  left: 76px;
+  width: 48px;
+  height: 48px;
+  background: url(../../../assets/play.png);
+  opacity: 0;
+  z-index: 99;
+}
+
+.moviegrid-item:hover .moviegrid-play-trailer {
+  opacity: 0.9;
+}
+
+.moviegrid-item:hover .moviegrid-play-trailer:hover {
+  opacity: 1;
+}
+
+.moviegrid-item:hover .moviegrid-poster {
+  transform: scale(1.05);
+}
+
+.moviegrid-item .moviegrid-poster {
+  transition: all 0.2s;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.moviegrid-item .moviegrid-title {
+  display: block;
+  margin-top: 16px;
+  font-size: 1rem;
+  font-family: Roboto,Helvetica,Arial,sans-serif;
+  /*font-weight: bold;*/
+  color: #e1e1e1;
+}
