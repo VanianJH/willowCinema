@@ -4,6 +4,7 @@ import {map, catchError, switchMap, concatMap} from 'rxjs/operators';
 import {Movie} from '../../interface/movie';
 import {HttpClient} from '@angular/common/http';
 import {NONE_TYPE} from '@angular/compiler';
+import {ShowtimeDate} from '../../interface/showtime-date';
 
 @Injectable({
   providedIn: 'root'
@@ -359,6 +360,33 @@ export class MovieSearchService {
     return of<Movie[]>(
       this.movies.slice(f, t)
     );
+  }
+
+  // Get movie showtimes
+  getMovieShowtimes(movie: Movie | number, filterDate: string, showAllTimes: boolean = false): Observable<ShowtimeDate[]> {
+    let id: number = 0;
+    if (typeof movie === 'number') {
+      id = movie;
+    } else {
+      id = movie.id;
+    }
+
+    let res: ShowtimeDate[] = null;
+    for (let showtimedatas of this.moviesData.showtimes) {
+      if (showtimedatas.movieId === id) {
+        res = showtimedatas.showtimes;
+        break;
+      }
+    }
+    return of(res);
+  }
+
+  getMovie(id: number): Observable<Movie> {
+    for (let m of this.movies) {
+      if (m.id === id) {
+        return of(m);
+      }
+    }
   }
 
 }

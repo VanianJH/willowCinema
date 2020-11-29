@@ -16,6 +16,11 @@ import {ModalModule} from 'ngx-bootstrap/modal';
 import {BsDropdownModule} from 'ngx-bootstrap/dropdown'
 import { MovieGridComponent } from './component/movie-grid/movie-grid.component';
 import { UserAvatorComponent } from './component/user-avator/user-avator.component';
+import { MoviesComponent } from './component/movies/movies.component';
+import { MovieListComponent } from './component/movie-list/movie-list.component';
+import { ShowtimesComponent } from './component/showtimes/showtimes.component';
+import { MovieDetailComponent } from './component/movie-detail/movie-detail.component';
+import { MoviesGridComponent } from './component/movies-grid/movies-grid.component';
 
 
 @NgModule({
@@ -29,7 +34,12 @@ import { UserAvatorComponent } from './component/user-avator/user-avator.compone
     MovieSearchComponent,
     MovieSliderComponent,
     MovieGridComponent,
-    UserAvatorComponent
+    UserAvatorComponent,
+    MoviesComponent,
+    MovieListComponent,
+    ShowtimesComponent,
+    MovieDetailComponent,
+    MoviesGridComponent
   ],
   imports: [
     BrowserModule,

@@ -9,7 +9,7 @@ import {BsDropdownConfig} from 'ngx-bootstrap/dropdown';
   providers: [{provide: BsDropdownConfig, useValue: {isAnimated: true, autoClose: true}}]
 })
 export class UserAvatorComponent implements OnInit {
-  imgUrl: string = "../../../assets/robot.png";
+  imgUrl: string = "../../../assets/avator.png";
 
   constructor() {
   }
