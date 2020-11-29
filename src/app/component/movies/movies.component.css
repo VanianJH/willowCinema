@@ -1,0 +1,21 @@
+.movielist-filters {
+    list-style: none;
+    padding-left: 0;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #333;
+}
+
+.movielist-filters li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 5px;
+}
+
+.movielist-filters li:last-child {
+    margin-right: 0;
+}
+
+.movielist-filters li.selected a {
+    color: #fff;
+}

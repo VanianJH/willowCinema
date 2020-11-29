@@ -1,0 +1,41 @@
+.showtimes {
+    border-top: 1px solid #1e1e1e;
+    padding-top: 24px;
+    margin-top: 24px;
+}
+
+.showtimes .showtime-date {
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.showtimes .showtime-section ul {
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.showtimes .showtime-section ul li {
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.showtimes .showtime-section .showtime-section-detail a {
+    display: inline-block;
+    padding: 6px 20px;
+    border: 1px solid #333;
+}
+
+.showtimes .showtime-section .showtime-section-detail a:hover {
+    border-color: #808080;
+}
+
+.showtimes .showtime-section .showtime-section-detail time {
+    display: block;
+    color: #fff;
+}
+
+.showtimes .showtime-section .showtime-section-detail span {
+    color: #f37735;
+    font-size: 14px;
+}
