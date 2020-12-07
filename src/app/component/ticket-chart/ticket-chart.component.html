@@ -1,0 +1,101 @@
+<div class="ticket-root">
+  <div class="main clearfix">
+    <div class="hall">
+      <div class="seat-example">
+        <div class="selectable-example example">
+          <span>可选座位</span>
+        </div>
+        <div class="sold-example example">
+          <span>已售座位</span>
+        </div>
+        <div class="selected-example example">
+          <span>已选座位</span>
+        </div>
+      </div>
+
+
+      <div class="seats-block" data-cols="10" data-section-id="0" data-section-name="默认分区"
+           data-seq-no="202012050237713">
+        <div class="row-id-container">
+          <span class="row-id" *ngFor="let row of chart; let index = index">{{index+1}}</span>
+        </div>
+
+        <div class="seats-container">
+          <div class="screen-container" style="left: 0px;">
+            <div class="screen">银幕中央</div>
+            <div class="c-screen-line"></div>
+          </div>
+
+          <div class="seats-wrapper">
+            <div class="row" *ngFor="let row of this.chart; let rowIndex = index">
+              <span class="seat " *ngFor="let col of row; let colIndex=index"
+                    [class.selectable]="col==0"
+                    [class.sold]="col==1"
+                    [class.selected]="col==2"
+                    [class.empty]="col==3"
+                    (click)="selectSeat(rowIndex, colIndex)">
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="side">
+      <div class="movie-info clearfix">
+        <div class="poster">
+          <img src="https://p1.meituan.net/movie/38dd31a0e1b18e1b00aeb2170c5a65b13885486.jpg@115w_158h_1e_1c">
+        </div>
+        <div class="content">
+          <p class="name text-ellipsis">除暴</p>
+          <div class="info-item">
+            <span>类型 :</span>
+            <span class="value">犯罪,剧情,动作</span>
+          </div>
+          <div class="info-item">
+            <span>时长 :</span>
+            <span class="value">95分钟</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="show-info">
+        <div class="info-item">
+          <span>影厅 :</span>
+          <span class="value text-ellipsis">{{hall}}</span>
+        </div>
+        <div class="info-item">
+          <span>场次 :</span>
+          <span class="value text-ellipsis screen">{{date}}</span>
+        </div>
+        <div class="info-item">
+          <span>票价 :</span>
+          <span class="value text-ellipsis">￥{{price}}/张</span>
+        </div>
+      </div>
+
+      <div class="ticket-info">
+        <div class="has-ticket" style="">
+          <span class="text">座位：</span>
+          <div class="ticket-container" data-limit="4">
+            <span class="ticket"
+                  *ngFor="let ts of selectedTickets"
+            (click)="deleteTicket(ts[0], ts[1])">
+              {{ts[0] + 1}}排{{ts[1] + 1}}座
+            </span>
+          </div>
+
+          <div class="total-price">
+            <span>总价 :</span>
+            <span class="price">{{amount}}</span>
+          </div>
+        </div>
+
+        <div class="confirm-order">
+          <div class="confirm-btn" data-act="confirm-click" data-bid="b_0a0ep6pp">确认选座</div>
+        </div>
+      </div>
+    </div>
+
+  </div>

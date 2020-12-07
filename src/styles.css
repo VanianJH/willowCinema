@@ -1,3 +1,6 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~bs-stepper/dist/css/bs-stepper.min.css';
+
 body {
     background: linear-gradient(to bottom, #191919 0, #000 100%) no-repeat #000;
     color: rgba(255, 255, 255, 0.75);
@@ -17,4 +20,3 @@ h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
     color: rgba(255, 255, 255, 0.8);
 }
-  

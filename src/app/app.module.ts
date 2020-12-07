@@ -21,6 +21,9 @@ import { MovieListComponent } from './component/movie-list/movie-list.component'
 import { ShowtimesComponent } from './component/showtimes/showtimes.component';
 import { MovieDetailComponent } from './component/movie-detail/movie-detail.component';
 import { MoviesGridComponent } from './component/movies-grid/movies-grid.component';
+import { TicketBuyComponent } from './component/ticket-buy/ticket-buy.component';
+import { SeatChartComponent } from './component/seat-chart/seat-chart.component';
+import { TicketChartComponent } from './component/ticket-chart/ticket-chart.component';
 
 
 @NgModule({
@@ -39,7 +42,11 @@ import { MoviesGridComponent } from './component/movies-grid/movies-grid.compone
     MovieListComponent,
     ShowtimesComponent,
     MovieDetailComponent,
-    MoviesGridComponent
+    MoviesGridComponent,
+    TicketBuyComponent,
+    SeatChartComponent,
+    SeatChartComponent,
+    TicketChartComponent
   ],
   imports: [
     BrowserModule,
