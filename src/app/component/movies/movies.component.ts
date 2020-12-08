@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {FilterDate} from '../../interface/filter-date';
+import { Component, OnInit } from '@angular/core';
+import { FilterDate } from '../../interface/filter-date';
 
 @Component({
   selector: 'app-movies',
@@ -10,7 +10,8 @@ export class MoviesComponent implements OnInit {
   filters: FilterDate[];
   selectedDate: string;
 
-  categories: string[] = ['All types', 'plot', 'comedy', 'action', 'love', 'science fiction', 'animation', 'suspense', 'terror', 'crime', 'music', 'history', 'war', 'West', 'fantasy', 'adventure', 'disaster', 'martial arts'];
+  categories: string[] = ['All types', 'Plot', 'Comedy', 'Action', 'Love', 'Science fiction', 'Animation', 'Suspense', 'Terror',
+    'Crime', 'Music', 'History', 'War', 'West', 'Fantasy', 'Adventure', 'Disaster', 'Martial arts'];
   selectedCate: string = 'All types';
 
   constructor() {
@@ -29,11 +30,11 @@ export class MoviesComponent implements OnInit {
     this.selectedDate = this.dateToString(date);
 
     for (let i = 0; i < 7; i++) {
-      this.filters.push({date: this.dateToString(date), day: i === 0 ? 'Today' : weekday[date.getDay()]});
+      this.filters.push({ date: this.dateToString(date), day: i === 0 ? 'Today' : weekday[date.getDay()] });
       date.setDate(date.getDate() + 1);
     }
 
-    this.filters.push({date: 'all', day: 'All Times'});
+    this.filters.push({ date: 'all', day: 'All Times' });
   }
 
   // change filter

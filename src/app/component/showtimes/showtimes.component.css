@@ -32,7 +32,8 @@
 
 .showtimes .showtime-section .showtime-section-detail time {
     display: block;
-    color: #fff;
+    /* color: #fff; */
+    color: #000;
 }
 
 .showtimes .showtime-section .showtime-section-detail span {

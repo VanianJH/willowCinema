@@ -16,6 +16,16 @@
     margin-right: 0;
 }
 
+.movielist-filters li a {
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-radius: 3px;
+}
+
+
 .movielist-filters li.selected a {
     color: #fff;
+    background-color: #dd6666;
 }

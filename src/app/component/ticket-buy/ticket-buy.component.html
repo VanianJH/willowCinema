@@ -26,19 +26,20 @@
     <div class="bs-stepper-content">
       <form (submit)="onSubmit()">
         <div id="test-l-1" class="content">
-          <app-ticket-chart ></app-ticket-chart>
+          <app-ticket-chart [next]="next.bind(this)"></app-ticket-chart>
 <!--          <div class="text-right">-->
 <!--            <button (click)="next()" class="btn btn-primary">Next</button>-->
 <!--          </div>-->
         </div>
         <div id="test-l-2" class="content">
-          <div class="form-group">
+          <app-confirm-seat [next]="next.bind(this)"></app-confirm-seat>
+          <!-- <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
           </div>
           <div class="text-right">
             <button (click)="next()" class="btn btn-primary">Next</button>
-          </div>
+          </div> -->
         </div>
         <div id="test-l-3" class="content">
           <div class="text-right">

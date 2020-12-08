@@ -8,6 +8,8 @@ import {compareNumbers} from '@angular/compiler-cli/src/diagnostics/typescript_v
 })
 export class TicketChartComponent implements OnInit {
   @Input()
+  next: any;
+  @Input()
   price: number = 33;
   @Input()
   hall: string='6号激光厅';
@@ -61,6 +63,10 @@ export class TicketChartComponent implements OnInit {
       }
       this.amount -= this.price;
     }
+  }
+
+  confirmSeat() {
+    this.next() 
   }
 
 }

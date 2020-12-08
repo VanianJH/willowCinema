@@ -8,7 +8,7 @@
 .main {
   width: 100%;
   font-size: 0;
-  /*border: 1px solid #e5e5e5;*/
+  border: 1px solid #e5e5e5;
   display: flex;
 
 }
@@ -22,7 +22,7 @@
 
 .side {
   width: 340px;
-  background-color: #333;
+  background-color: #F9f9f9;
   padding: 20px;
   display: inline-block;
 }
@@ -61,7 +61,7 @@
 }
 .side .ticket-info .total-price {
   font-size: 14px;
-  color: #333;
+  color: #000;
 }
 .side .ticket-info .total-price .price {
   color: #f03d37;
@@ -79,7 +79,7 @@
   font-size: 14px;
 }
 .side .info-item .value {
-  color: #eee;
+  color: #333;
   margin-left: 2px;
 }
 .text-ellipsis {
@@ -90,7 +90,7 @@
 .side .movie-info .content .name {
   font-size: 20px;
   font-weight: 700;
-  color: #eee;
+  color: #222;
   margin: 0 0 14px;
 }
 .side .movie-info .poster {
@@ -131,7 +131,7 @@
 }
 .side .ticket-info .total-price {
   font-size: 14px;
-  color: #eee;
+  color: #222;
 }
 .side .ticket-info .total-price .price {
   color: #f03d37;
@@ -161,6 +161,7 @@
   width: 820px;
   display: inline-block;
   vertical-align: top;
+  background-color: #f1f1f1;
 }
 .hall .seat-example {
   margin: 30px 0 30px 118px;
@@ -173,7 +174,6 @@
 }
 .hall .seat-example .selectable-example {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAaCAYAAACgoey0AAAAAXNSR0IArs4c6QAAAY9JREFUSA3tVs1qg0AQ3l1/i5eCFC8+QSC0+BQ999QeC32t9lLovac8RQwk6BOUXLzVitFE0/mEDVIiJsbkUgeM7jjzfd/OjpvlrGZhGL6uVqvnsix5zX3yoxBia5rm22g0etkL5vt+WRTFtm8DJrDrpKI+wExJXd3VyzMw/1axf5YDpe6IqRSPUJZlGdQdmN4eBixgAps4nmRGRUyOCTneXddlnHOWJEkv5CAFFjCBTeOP2Wz2CXI+nU7vqZkmnudVAXBuNptKpWVZGHa2OI4ZdTPTNK3CIB42n89TarYHQWpuHcfJoEqaqqqViFNKDhKUV5ICGxy2bQt6d4cfU1EUQ5LKO4KQ3NWQW5+MxAEXCbraNZd8can7QHypSrOh1EOpz1YBtQkZOw+2zK67V1teI7FhGGy9XjfpavWDWNf1xrhGYtpTGa5z2f/6jmkZFPwff0VR1H0xj1yL5XKJhv3hQRDoaZriILClKz8S5+hwIk3ptHNTHTtowBeLxXWe5/2d8vZIoi4X4/H4myZY/AJMWAAq2pF/7QAAAABJRU5ErkJggg==);
-  opacity: 0.5;
 }
 .hall .seat-example .example {
   display: inline-block;
@@ -268,7 +268,6 @@
   background-position: 0 1px;
 }
 .seats-block .seat.selectable {
-  opacity: 0.7;
 }
 .seats-block .seat.selected {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAaCAYAAACgoey0AAAAAXNSR0IArs4c6QAAAoxJREFUSA3Fls9LFGEYx78z7rq7WuEiQqEVi1SHwjrVSU9aghURJYa2UUgd+nEuKAg6dK7cQ6FSCYrdosK/oFupFF46CLkFBZm7s+K4P2benmfGHRx3t5nZXdln2Zl5n3me5/O+z/vMMyNhk0RfY0zL4qrQIW1SV3wpyRA+P8ZfRTGcD+bLX/CZoeF9kMiwqiIEpJXvuEZBLbANwSutNpRXIFH+tmbRBq7qMh2CWeDLoxjgnV1bNlLu4Ob+di5txuTYQ+O4lPc0wEOjmNGAicZmUpMmEQfYoVLhGMmflOo6gGPrGiYHx/CW40oE7dUFZpojPDJR6RTNcgVo2mvuj6n1flxeJGALENy54SuAv0tQJR3nZR042hBGOg9lkwAZcpFRlXuSPY1H4JODho+eoxj0zFhQ1tLCgrsgU5Ufk2kQpIkEthJkSg9VomvparuDeye+4vjuqOFDaYVsVZAtTICYoeK3bHbOg66227hw8AmWlE+Y/T3t7EAWrsFXDk+he//dgqCdrbcI+tSAxuZ7sK4lC2yKKVyD6+UGnG1/jL7IIytOZ+tNXDz0jKCfEZs/CTWXsO45Xdha5v+MXy4M4HrHO5yK3Iegn5L5RdARxFOzBO0hKD0GHsQ1OKurePHlDG50vEdv5IGBiKfmMDLX7RnKzq5TzcYMf07whT8fsJj4iFiZUI7lesVszJLV1wh+2hxUcPS04go4Ba41A5dMNXceLUONnVpfWUJdb6P1F3UvCea3ybpS1MedkvpwKFzatCTYHwL4v11Ssz2uFbiOwT8yCjy+ecvfAJU7q8Cq9PAN6r8ljQ8BQbOgOt5eoZpTD7Sjxah4/u4dnETTDj88vPq9T3A1C/mcH0p/P7R/ODnAZaZCuGEAAAAASUVORK5CYII=);

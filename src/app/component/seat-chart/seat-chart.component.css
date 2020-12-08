@@ -41,7 +41,7 @@
   color: white;
   background-color: red;
   font-weight: bolder;
-  border: 0px solid #a0a0a0;
+  border: 1px solid #a0a0a0;
 }
 
 .seat-available:hover {

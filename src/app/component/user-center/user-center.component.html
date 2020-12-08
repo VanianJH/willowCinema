@@ -1,0 +1,105 @@
+<div class="container" id="app">
+    <div class="content">
+        <div class="main">
+            <div class="info-content clearfix">
+                <div class="user-profile-nav">
+                    <h1>个人中心</h1>
+                    <a href="/user/orders" class="orders active">我的订单</a>
+                    <a href="/user/profile" class="profile ">基本信息</a>
+                </div>
+
+                <div class="orders-container">
+                    <div class="profile-title">我的订单</div>
+
+                    <div class="order-box" data-orderid="22036132312">
+                        <div class="order-header">
+                            <span class="order-date">2020-12-08</span>
+                            <span class="order-id">猫眼订单号:22036132312</span>
+                            <span class="del-order" data-orderid="22036132312"></span>
+                        </div>
+
+                        <div class="order-body">
+                            <div class="poster">
+                                <img
+                                    src="https://p1.meituan.net/movie/63696901c00a1aea8fcc62ba873bb6d41014216.jpg@66w_91h_1e_1c">
+                            </div>
+
+                            <div class="order-content">
+                                <div class="movie-name">《拆弹专家2》</div>
+                                <div class="cinema-name">中广汪海国际影城</div>
+                                <div class="hall-ticket">
+                                    <span>二楼2号厅（中国多维声、4K影厅）</span>
+                                    <span>2排10座</span>
+                                </div>
+                                <div class="show-time">周四 12月24日 14:00</div>
+                            </div>
+
+                            <div class="order-price">￥33</div>
+
+                            <div class="order-status">
+                                待支付
+                            </div>
+
+                            <div class="actions">
+                                <div>
+                                    <a href="/order/detail/22036132312" class="pay-btn" data-act="orders-pay-click"
+                                        data-bid="b_d2ll8ybm">付款</a>
+                                    <!-- <a href="/order/detail/22036132312" class="order-detail"
+                                        data-act="orders-detail-click" data-bid="b_y190atas">查看详情</a> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="orders-pager">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="mask3">
+        <div class="modal-container" style="display:none">
+            <div class="modal">
+                <span class="icon"></span>
+
+                <p class="tip">您确定要删除该订单嘛？删除后，不可恢复～</p>
+
+                <div class="short btn ok-btn">确定</div>
+                <div class="short btn cancel-btn">取消</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mask1">
+        <div class="modal-container" style="display:none">
+            <div class="modal">
+                <span class="icon"></span>
+
+                <p class="tip">请注意，注销账号会清空所有订单信息、影评、积分、<br>账户余额等信息且无法找回，是否继续？</p>
+
+                <div class="short btn ok-btn">确定</div>
+                <div class="short btn cancel-btn">取消</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mask2">
+        <div class="modal-container" style="display:none">
+            <div class="modal">
+                <span class="icon"></span>
+
+                <p class="tip">请联系客服10105335</p>
+
+                <div class="ok-btn btn">我知道了</div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

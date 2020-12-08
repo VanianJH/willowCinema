@@ -1,3 +1,8 @@
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    color: rgba(255, 255, 255, 0.8);
+    /* color: rgba(0, 0, 0, 0.8); */
+}
+
 .movie-backdrop {
     height: 400px;
     width: 100%;
@@ -62,7 +67,8 @@
 
 .movie-meta dt {
     margin-right: .4rem;
-    color: #ddd;
+    /* color: #ddd; */
+    color: #222;
 }
 
 .movie-meta dd {
@@ -84,3 +90,4 @@
 .likeBtn.selected {
     background-color: indianred;
 }
+

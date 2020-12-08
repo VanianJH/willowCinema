@@ -1,0 +1,77 @@
+<div class="container" id="app">
+    <div class="count-down-wrapper">
+        <div class="count-down" data-payleftseconds="838">
+            <p class="time-left">
+                请在
+                <span class="minute">{{minute}}</span>
+                分钟
+                <span class="second">{{second}}</span>秒内完成支付
+            </p>
+            <p class="tip">超时订单会自动取消，如遇支付问题，请致电客服：1010-5335</p>
+        </div>
+    </div>
+
+    <p class="warning">请仔细核对场次信息，出票后将<span class="attention">无法退票和改签</span></p>
+
+    <table class="order-table">
+        <thead>
+            <tr>
+                <th>影片</th>
+                <th>时间</th>
+                <th>影院</th>
+                <th>座位</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="movie-name">《我和我的家乡》</td>
+                <td class="showtime">明天 12月8日 12:45</td>
+                <td class="cinema-name">中广国际影城（宁浦店）</td>
+                <td>
+                    <span class="hall">三号厅</span>
+                    <div class="seats">
+                        <div>
+                            <span class=""><i>4</i>排<i>3</i>座</span>
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <div class="right">
+        <div class="price-wrapper">
+            <span>实际支付 :</span>
+            <span class="price">28</span>
+        </div>
+        <div>
+            <div class="pay-btn" (click)="confirmPay()" data-order-id="22035899219" data-act="pay-click" data-bid="b_u30afks6">{{confirmBtnMsg}}</div>
+        </div>
+    </div>
+
+    <!-- <form name="cashierForm" method="post" action="https://mpay.meituan.com/cashier/pc/index">
+        <input type="hidden" name="token" value="">
+        <input type="hidden" name="tradeno" value="">
+        <input type="hidden" name="pay_token" value="">
+        <input type="hidden" name="website" value="mtmaoyan">
+        <input type="hidden" name="pay_success_url" value="http://www.maoyan.com/order/result/22035899219">
+        <input type="hidden" name="nb_platform" value="www">
+        <input type="hidden" name="nb_source" value="cashier-pcforcustomer">
+    </form>
+    -->
+
+
+    <!-- <div class="modal-container" style="display:none">
+        <div class="modal">
+            <span class="icon"></span>
+
+            <p class="tip">支付超时，该订单已失效，请重新购买</p>
+
+            <div class="ok-btn btn">我知道了</div>
+        </div>
+    </div>  -->
+
+</div>

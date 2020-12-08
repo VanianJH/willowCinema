@@ -24,7 +24,12 @@ import { MoviesGridComponent } from './component/movies-grid/movies-grid.compone
 import { TicketBuyComponent } from './component/ticket-buy/ticket-buy.component';
 import { SeatChartComponent } from './component/seat-chart/seat-chart.component';
 import { TicketChartComponent } from './component/ticket-chart/ticket-chart.component';
-
+import { LoginComponent } from './component/login/login.component';
+import { InstantTestComponent } from './component/instant-test/instant-test.component';
+import { CookieService } from "ngx-cookie-service";
+import { ConfirmSeatComponent } from './component/confirm-seat/confirm-seat.component';
+import { UserCenterComponent } from './component/user-center/user-center.component';
+import { ProfileComponent } from './component/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +51,12 @@ import { TicketChartComponent } from './component/ticket-chart/ticket-chart.comp
     TicketBuyComponent,
     SeatChartComponent,
     SeatChartComponent,
-    TicketChartComponent
+    TicketChartComponent,
+    LoginComponent,
+    InstantTestComponent,
+    ConfirmSeatComponent,
+    UserCenterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +65,7 @@ import { TicketChartComponent } from './component/ticket-chart/ticket-chart.comp
     CarouselModule.forRoot(),
     BsDropdownModule.forRoot()
   ],
-  providers: [MovieSearchService],
+  providers: [MovieSearchService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

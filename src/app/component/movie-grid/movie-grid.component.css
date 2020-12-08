@@ -35,7 +35,8 @@
 .moviegrid-item .moviegrid-poster {
   transition: all 0.2s;
   width: 100%;
-  height: auto;
+  /* height: auto; */
+  min-height: 271.8px;
   display: block;
 }
 
@@ -45,5 +46,7 @@
   font-size: 1rem;
   font-family: Roboto,Helvetica,Arial,sans-serif;
   /*font-weight: bold;*/
-  color: #e1e1e1;
+  /* color: #e1e1e1; */
+  color: #000;
+  text-align: center  ;
 }

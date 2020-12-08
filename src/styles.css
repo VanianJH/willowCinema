@@ -2,21 +2,27 @@
 @import '~bs-stepper/dist/css/bs-stepper.min.css';
 
 body {
-    background: linear-gradient(to bottom, #191919 0, #000 100%) no-repeat #000;
-    color: rgba(255, 255, 255, 0.75);
+    /* background: linear-gradient(to bottom, #191919 0, #000 100%) no-repeat #000; */
+    background: #f3f3f3;
+
+    color: rgba(0, 0, 0, 0.75);
 }
 
 a {
-    color: #777;
+    /* color: #777; */
+    color: #333;
     transition: all 0.4s;
 }
 
 a:hover {
-    color: #fff;
+    /* color: #fff; */
+    color: #777;
     text-decoration: none;
 }
 
+
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-    color: rgba(255, 255, 255, 0.8);
+    /* color: rgba(255, 255, 255, 0.8); */
+    color: rgba(0, 0, 0, 0.8);
 }

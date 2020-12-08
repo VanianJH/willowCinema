@@ -1,5 +1,12 @@
 .header {
-    background-color: #000;
+    /* background-color: #000; */
+    background-color: #e3e3e3;
+}
+
+#headContainer {
+    max-width: 98%;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 .navbar .navbar-brand {
@@ -14,6 +21,9 @@
 }
 
 .navbar .navbar-nav .nav-link {
+    
+    color: #000;
+
     padding-left: 1rem;
     padding-right: 1rem;
 }

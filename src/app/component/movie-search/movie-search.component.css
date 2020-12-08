@@ -3,7 +3,8 @@
   }
   
   .movie-search-container input {
-    background: #222;
+    /* background: #222; */
+    background: #ddd;
     border: none;
     transition: all 0.4s;
     width: 320px;
@@ -11,7 +12,8 @@
   
   .movie-search-container input:focus {
     box-shadow: none;
-    background: #333;
+    /* background: #333; */
+    background: #ccc;
     width: 320px;
   }
   
@@ -27,18 +29,23 @@
     z-index: 999;
     list-style: none;
     padding-left: 0;
-    background: #222;
+    /* background: #222; */
+    background: #eee;
   }
   
   .movie-search-result li a {
     display: block;
     padding: 10px;
-    border-bottom: 1px solid #1e1e1e;
+    /* border-bottom: 1px solid #1e1e1e; */
+    border-bottom: 1px solid #e1e1e1;
+
   }
   
   .movie-search-result li a:hover {
-    background: #1e1e1e;
-    color: #eee;
+    /* background: #1e1e1e; */
+    background: #e1e1e1;
+    /* color: #eee; */
+    color: #111;
   }
   
   .movie-search-result .movie-search-result-image {
