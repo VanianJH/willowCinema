@@ -11,18 +11,22 @@ import { InstantTestComponent } from './component/instant-test/instant-test.comp
 import { ConfirmSeatComponent } from './component/confirm-seat/confirm-seat.component';
 import { UserCenterComponent } from './component/user-center/user-center.component';
 import { ProfileComponent } from './component/profile/profile.component';
+import {PayResultComponent} from './component/pay-result/pay-result.component';
+import {RegisterComponent} from './component/register/register.component';
+import { CouponSelectComponent } from './component/coupon-select/coupon-select.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/frontpage', pathMatch: 'full'},
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'frontpage', component: FrontpageComponent},
   {path: 'movies', component: MoviesComponent},
   {path: 'movie/:id', component: MovieDetailComponent},
-  {path: 'movie/:id/buy', component: TicketBuyComponent},
-  {path: 'test', component: ConfirmSeatComponent},
-  {path: 'login', component: LoginComponent},
+  {path: 'movie/:id/buy/:sid', component: TicketBuyComponent},
+  {path: 'test', component: InstantTestComponent},
   {path: 'user', component: UserCenterComponent},
   {path: 'user/orders', component: UserCenterComponent},
   {path: 'user/profile', component: ProfileComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent}
 ];
 
 @NgModule({

@@ -37,3 +37,8 @@ a.dropdown-item {
     overflow: hidden;
     border-top: 1px solid #a9acaf;
 }
+
+@media all {
+  #dropdown-animated{ display: none; }
+  .btn-group:hover #dropdown-animated{ display: block; }
+}

@@ -19,4 +19,8 @@ export interface Movie {
     // 电影时长
     runtime: number;
     mpaa: string;
+    like_count?: number;
+    type?: string[];
+    is_like?: boolean;
 }
+

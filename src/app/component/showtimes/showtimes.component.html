@@ -4,7 +4,7 @@
         <div class="showtime-section">
             <ul>
                 <li class="showtime-section-detail" *ngFor="let time of showtime.times">
-                    <a href="javascript:void(0);">
+                    <a [href]="getBuyUrl(time.movieId, time.id)">
                         <time>{{time.time || time}}</time>
                         <span>{{time.type ? time.type : '2D'}}</span>
                     </a>

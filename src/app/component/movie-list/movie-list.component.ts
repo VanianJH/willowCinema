@@ -3,6 +3,8 @@ import {Movie} from './../../interface/movie';
 import {Component, OnInit, Input, SimpleChanges, OnChanges, TemplateRef} from '@angular/core';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 import {BsModalService, BsModalRef} from 'ngx-bootstrap/modal';
+import { MoviesComponent } from '../movies/movies.component';
+import { MoviesService } from 'src/app/service/movies/movies.service';
 
 @Component({
   selector: 'app-movie-list',
@@ -17,10 +19,15 @@ export class MovieListComponent implements OnInit, OnChanges {
   modalRef: BsModalRef;
   previewUrl = '';
 
-  constructor(private db: MovieSearchService, private modalService: BsModalService, private sanitizer: DomSanitizer) {
+  constructor(private db: MovieSearchService, 
+    private modalService: BsModalService, 
+    private sanitizer: DomSanitizer,
+    private ms: MoviesService) {
+      
   }
 
   ngOnInit() {
+    this.ms.setMovieListComponent(this)
     this.getMovies();
   }
 
@@ -34,8 +41,8 @@ export class MovieListComponent implements OnInit, OnChanges {
   // todo
   getMovies(): void {
     // this.db.getNowPlayingMovies(this.filterDate).subscribe(movies => this.movies = movies);
-    this.db.getTopMovies(10).subscribe(movies => this.movies = movies);
-
+    // this.db.getTopMovies(10).subscribe(movies => this.movies = movies);
+    this.ms.getSearchMovies().subscribe(res=>{this.movies=this.ms.moviesFilter(res['content'])})
   }
 
 

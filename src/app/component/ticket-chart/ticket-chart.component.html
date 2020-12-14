@@ -45,7 +45,7 @@
     <div class="side">
       <div class="movie-info clearfix">
         <div class="poster">
-          <img src="https://p1.meituan.net/movie/38dd31a0e1b18e1b00aeb2170c5a65b13885486.jpg@115w_158h_1e_1c">
+          <img [src]="imgSrc" class="myPoster">
         </div>
         <div class="content">
           <p class="name text-ellipsis">除暴</p>
@@ -67,7 +67,7 @@
         </div>
         <div class="info-item">
           <span>场次 :</span>
-          <span class="value text-ellipsis screen">{{date}}</span>
+          <span class="value text-ellipsis screen">{{date | day}} {{dayTime}}</span>
         </div>
         <div class="info-item">
           <span>票价 :</span>
@@ -77,14 +77,18 @@
 
       <div class="ticket-info">
         <div class="has-ticket" style="">
-          <span class="text">座位：</span>
-          <div class="ticket-container" data-limit="4">
-            <span class="ticket"
-                  *ngFor="let ts of selectedTickets"
-            (click)="deleteTicket(ts[0], ts[1])">
-              {{ts[0] + 1}}排{{ts[1] + 1}}座
-            </span>
+          <div class="myTickets">
+            <span class="text">座位：</span>
+            <div class="ticket-container" data-limit="4">
+              <span class="ticket"
+                    *ngFor="let ts of selectedTickets"
+              (click)="deleteTicket(ts[0], ts[1])">
+                {{ts[0] + 1}}排{{ts[1] + 1}}座
+              </span>
+            </div>
           </div>
+            
+          
 
           <div class="total-price">
             <span>总价 :</span>

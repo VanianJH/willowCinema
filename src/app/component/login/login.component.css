@@ -235,3 +235,12 @@ a:hover{
   color: #d9d9d9;
   font-size: 18px;
 }
+
+
+#loginBtn {
+  background: #ed3931;
+  height: 45px;
+  line-height: 45px;
+}
+
+

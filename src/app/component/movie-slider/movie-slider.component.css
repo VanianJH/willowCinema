@@ -1,5 +1,5 @@
 .movies-slider-container .carousel-item {
-  max-height: 400px;
+  max-height: 480px;
   overflow: hidden;
 }
 
@@ -11,3 +11,18 @@
   display: block;
   width: 100%;
 }
+
+
+.item {
+  height: 550px;
+  width: 100%;
+}
+
+.movies-slider-container img {
+  display: block;
+  width: 100%;
+  top: -50px;
+  right: 0px;
+  position: absolute;
+}
+

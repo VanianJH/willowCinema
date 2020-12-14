@@ -1,3 +1,11 @@
+.myTickets {
+  height: fit-content;
+  min-height: 30px;
+}
+
+.myPoster {
+  height: 168px;
+}
 .ticket-root {
   margin-right: 40px;
   margin-left: 40px;
@@ -161,7 +169,6 @@
   width: 820px;
   display: inline-block;
   vertical-align: top;
-  background-color: #f1f1f1;
 }
 .hall .seat-example {
   margin: 30px 0 30px 118px;
@@ -259,6 +266,7 @@
   display: block;
 }
 .seats-block .seat {
+  cursor: pointer;
   display: inline-block;
   font-size: 0;
   width: 30px;

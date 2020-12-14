@@ -1,14 +1,33 @@
 <div class="btn-group" dropdown>
-    <button id="button-animated" dropdownToggle type="button" class="btn"
-            aria-controls="dropdown-animated">
-        <img id = "usr-avator" src="{{imgUrl}}"> <span class="caret"></span>
-    </button>
-    <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu dropdown-menu-right"
-        role="menu" aria-labelledby="button-animated">
-        <li role="menuitem"><a class="dropdown-item" href="/user/orders">Ticket</a></li>
-        <li role="menuitem"><a class="dropdown-item" href="/user/profile">Coupon</a></li>
-        <li role="menuitem"><a class="dropdown-item" href="/user">Center</a></li>
-        <div class="dropdown-divider"></div>
-        <li role="menuitem"><a class="dropdown-item" href="login">Quit</a></li>
-    </ul>
+  <button id="button-animated" dropdownToggle type="button"
+          (click)="toUserCenter()"
+          class="btn"
+          aria-controls="dropdown-animated">
+    <img id="usr-avator" src="{{imgUrl}}"> <span class="caret"></span>
+  </button>
+  <ul id="dropdown-animated"  class="dropdown-menu dropdown-menu-right"
+      role="menu" aria-labelledby="button-animated">
+    <li role="menuitem"><a class="dropdown-item" href="/user/orders">Ticket</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="/user/cards">Card</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="/user/profile">Center</a></li>
+    <div class="dropdown-divider"></div>
+    <li role="menuitem"><a class="dropdown-item" href="login">Quit</a></li>
+  </ul>
 </div>
+
+<!--<nav class="navbar navbar-expand-lg navbar-dark bg-primary"><a class="navbar-brand" href="#">Navbar</a>-->
+<!--  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav"><span-->
+<!--    class="navbar-toggler-icon"></span></button>-->
+<!--  <div class="collapse navbar-collapse" id="main_nav">-->
+<!--    <ul class="navbar-nav">-->
+<!--      <li class="nav-item active"><a class="nav-link" href="#">Home </a></li>-->
+<!--      <li class="nav-item"><a class="nav-link" href="#"> About </a></li>-->
+<!--      <li class="nav-item"><a class="nav-link" href="#"> Services </a></li>-->
+<!--      <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"> More items </a>-->
+<!--        <ul class="dropdown-menu">-->
+<!--          <li><a class="dropdown-item" href="#"> Submenu item 1</a></li>-->
+<!--          <li><a class="dropdown-item" href="#"> Submenu item 2 </a></li>-->
+<!--        </ul>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--  </div> &lt;!&ndash; navbar-collapse.// &ndash;&gt;</nav>-->

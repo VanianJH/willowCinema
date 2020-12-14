@@ -1,5 +1,5 @@
 <div class="container" id="app">
-    <div class="count-down-wrapper">
+    <div class="count-down-wrapper" *ngIf="!timeout">
         <div class="count-down" data-payleftseconds="838">
             <p class="time-left">
                 请在
@@ -7,8 +7,15 @@
                 分钟
                 <span class="second">{{second}}</span>秒内完成支付
             </p>
+
             <p class="tip">超时订单会自动取消，如遇支付问题，请致电客服：1010-5335</p>
         </div>
+    </div>
+
+    <div *ngIf="timeout" class="status-box failed">
+        <p class="title">支付超时</p>
+
+        <p class="desc">支付超时，该订单已失效，请重新购买</p>
     </div>
 
     <p class="warning">请仔细核对场次信息，出票后将<span class="attention">无法退票和改签</span></p>
@@ -23,15 +30,15 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td class="movie-name">《我和我的家乡》</td>
-                <td class="showtime">明天 12月8日 12:45</td>
-                <td class="cinema-name">中广国际影城（宁浦店）</td>
+            <tr *ngFor="let item of seats">
+                <td class="movie-name">{{movieName}}</td>
+                <td class="showtime">{{date}}</td>
+                <td class="cinema-name"> 中广国际影城 </td>
                 <td>
-                    <span class="hall">三号厅</span>
+                    <span class="hall">{{hallName}}</span>
                     <div class="seats">
                         <div>
-                            <span class=""><i>4</i>排<i>3</i>座</span>
+                            <span class=""><i>{{item[0]+1}}</i>排<i>{{item[1]+1}}</i>座</span>
                         </div>
                         <div>
                         </div>
@@ -43,35 +50,19 @@
 
 
     <div class="right">
-        <div class="price-wrapper">
-            <span>实际支付 :</span>
-            <span class="price">28</span>
+        <div class="price-wrapper" style="display: flex;">
+            <app-coupon-select
+                [father]="this">
+            </app-coupon-select>
+            <div style="margin-right: 0px; margin-left: auto;">
+                <span>实际支付 :</span>
+                <span class="price">{{price}}</span>
+            </div>
         </div>
         <div>
-            <div class="pay-btn" (click)="confirmPay()" data-order-id="22035899219" data-act="pay-click" data-bid="b_u30afks6">{{confirmBtnMsg}}</div>
+            <div class="pay-btn" (click)="confirmPay()" data-order-id="22035899219" data-act="pay-click"
+                data-bid="b_u30afks6">{{confirmBtnMsg}}</div>
         </div>
     </div>
-
-    <!-- <form name="cashierForm" method="post" action="https://mpay.meituan.com/cashier/pc/index">
-        <input type="hidden" name="token" value="">
-        <input type="hidden" name="tradeno" value="">
-        <input type="hidden" name="pay_token" value="">
-        <input type="hidden" name="website" value="mtmaoyan">
-        <input type="hidden" name="pay_success_url" value="http://www.maoyan.com/order/result/22035899219">
-        <input type="hidden" name="nb_platform" value="www">
-        <input type="hidden" name="nb_source" value="cashier-pcforcustomer">
-    </form>
-    -->
-
-
-    <!-- <div class="modal-container" style="display:none">
-        <div class="modal">
-            <span class="icon"></span>
-
-            <p class="tip">支付超时，该订单已失效，请重新购买</p>
-
-            <div class="ok-btn btn">我知道了</div>
-        </div>
-    </div>  -->
 
 </div>

@@ -2,6 +2,15 @@
     width: 1200px;
     margin: 0 auto;
 }
+
+.form-save-btn {
+    text-align: center;
+}
+
+.profile-title {
+    margin-right: 80px;
+}
+
 .content {
     overflow: hidden;
     margin-top: 30px;
@@ -461,5 +470,9 @@ span.tip {
 }
 
 
-
+.upload-btn {
+  background-color: #ed3931 !important;
+  color: white !important;
+  opacity: 0.85;
+}
 

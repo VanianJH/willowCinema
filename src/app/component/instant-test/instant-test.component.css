@@ -1,0 +1,22 @@
+.movies-slider-container .carousel-item {
+    max-height: 500px;
+    overflow: hidden;
+}
+  
+.movies-slider-container .carousel-item a {
+    color: #fff;
+}
+
+.item {
+    height: 500px;
+    width: 100%;
+}
+
+.movies-slider-container img {
+    display: block;
+    width: 100%;
+    bottom: 0px;
+    right: 0px;
+    position: absolute;
+}
+  

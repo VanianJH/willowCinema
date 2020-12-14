@@ -1,0 +1,14 @@
+<div class="btn-group" dropdown>
+    <button id="button-menu-dividers" dropdownToggle type="button" class="btn btn-warning dropdown-toggle"
+        aria-controls="dropdown-menu-dividers">
+        优惠券  <span class="caret"></span>
+    </button>
+    <ul id="dropdown-menu-dividers" *dropdownMenu class="dropdown-menu" role="menu"
+        aria-labelledby="button-menu-dividers">
+        <li *ngFor="let item of couponList" 
+            (click)="selectCoupon(item.targetAmount, item.discountAmount, item.id)"
+            role="menuitem">
+            <a class="dropdown-item">满{{item.targetAmount}}减{{item.discountAmount}}</a>
+        </li>
+    </ul>
+</div>

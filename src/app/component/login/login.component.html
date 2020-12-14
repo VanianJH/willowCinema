@@ -20,11 +20,16 @@
           </div>
           <div>
             <h5 *ngIf="!hasPass">Password</h5>
-            <input #password type="password" class="input" (keyup)="onKeyPass(password.value)">
+            <input #password type="password" class="input" (keyup)="onKeyPass(password.value)"
+              (keypress)="($event.which===13?login():0)" 
+            />
           </div>
         </div>
-        <a href="#">Do not have an account?</a>
-        <input type="submit" class="btn" value="Login" (click)="login()">
+        <a href="/register">Do not have an account?</a>
+        <alert type="warning" *ngIf="somethingWrong">
+          <strong>Warning!</strong> {{wrongMsg}}
+        </alert>
+        <div id = "loginBtn" type="submit" class="btn" value="Login" (click)="login()">login</div>
       </form>
     </div>
   </div>

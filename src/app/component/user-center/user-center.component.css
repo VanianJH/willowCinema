@@ -1,3 +1,23 @@
+.actions {
+    cursor: pointer;
+}
+
+.postImg{
+    height: 100px;
+}
+
+.order-content {
+    margin-left: 20px;
+}
+
+.order-body {
+    display: flex;
+}
+.order-status {
+    margin-right: 0px;
+    margin-left: auto;
+}
+
 .container {
     width: 1300px;
     margin: 0 auto;

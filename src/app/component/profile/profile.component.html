@@ -4,8 +4,8 @@
             <div class="info-content clearfix">
                 <div class="user-profile-nav">
                     <h1>个人中心</h1>
-                    <a href="/profile/orders" class="orders ">我的订单</a>
-                    <a href="/profile" class="profile active">基本信息</a>
+                    <a href="/user/orders" class="orders ">我的订单</a>
+                    <a href="/user/profile" class="profile active">基本信息</a>
                 </div>
 
                 <div class="profile-container">
@@ -24,24 +24,30 @@
                             <div class="tips">支持JPG,JPEG,PNG格式,且文件需小于1M</div>
                         </div>
                     </div>
-                    <form id="J-userexinfo-form" class="userexinfo-form">
+                    <form id="J-userexinfo-form" class="userexinfo-form" 
+                          [formGroup]="checkoutForm" 
+                          (ngSubmit)="onSubmit(checkoutForm.value)"
+                        >
                         <div class="userexinfo-form-section">
                             <p>昵称：</p>
                             <span>
-                                <input type="text" name="nickName" id="userexinfo-form-nickname" class="ui-checkbox"
-                                    placeholder="2-15个字，支持中英文、数字" value="ZfE434238419">
+                                <input type="text" 
+                                    formControlName="name"
+                                    name="nickName" id="userexinfo-form-nickname" class="ui-checkbox"
+                                    placeholder="2-15个字，支持中英文、数字" #dickName [value]="Name">
                             </span>
                         </div>
-                        <div class="userexinfo-form-section">
+                        <div class="userexinfo-form-section" 
+                            >
                             <p>性别：</p>
-                            <span>
-                                <input type="radio" name="gender" id="userexinfo-form-gender-1" value="1"
-                                    class="ui-radio radio-first">
+                            <span (click)="setSex(1)">
+                                <input type="radio" id="userexinfo-form-gender-1"  value="1"
+                                    class="ui-radio radio-first" formControlName='sex' name = 'sex'>
                                 <label for="userexinfo-form-gender-1">男</label>
                             </span>
-                            <span>
-                                <input type="radio" name="gender" id="userexinfo-form-gender-2" value="2"
-                                    class="ui-radio">
+                            <span (click)="setSex(2)">
+                                <input type="radio" id="userexinfo-form-gender-2"  value="2"
+                                    class="ui-radio" formControlName='sex' name = 'sex'>
                                 <label for="userexinfo-form-gender-2">女</label>
                             </span>
                         </div>
@@ -49,7 +55,7 @@
                             <p>生日：</p>
                             <span>
                                 <div class="ui-select">
-                                    <select name="year" class="ui-select">
+                                    <select name="year" class="ui-select" formControlName='year' name = 'year'>
                                         <option>--</option>
                                         <option value="2020">2020</option>
                                         <option value="2019">2019</option>
@@ -137,7 +143,7 @@
                             </span>
                             <span>
                                 <div class="ui-select">
-                                    <select name="month" class="ui-select">
+                                    <select name="month" class="ui-select" formControlName='month' name='month'>
                                         <option>--</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -157,7 +163,7 @@
                             </span>
                             <span>
                                 <div class="ui-select">
-                                    <select name="day" class="ui-select">
+                                    <select name="day" class="ui-select" formControlName='day'>
                                         <option>--</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -199,22 +205,22 @@
                         <div class="userexinfo-form-section">
                             <p>生活状态：</p>
                             <span>
-                                <input type="radio" name="marriage" id="userexinfo-form-merriage-1" value="单身"
+                                <input type="radio" name="marriage" formControlName='marriage' id="userexinfo-form-merriage-1" value="单身"
                                     class="ui-radio radio-first">
                                 <label for="userexinfo-form-merriage-1">单身</label>
                             </span>
                             <span>
-                                <input type="radio" name="marriage" id="userexinfo-form-merriage-2" value="热恋中"
+                                <input type="radio" name="marriage" formControlName='marriage' id="userexinfo-form-merriage-2" value="热恋中"
                                     class="ui-radio">
                                 <label for="userexinfo-form-merriage-2">热恋中</label>
                             </span>
                             <span>
-                                <input type="radio" name="marriage" id="userexinfo-form-merriage-3" value="已婚"
+                                <input type="radio" name="marriage" id="userexinfo-form-merriage-3"  formControlName='marriage' value="已婚"
                                     class="ui-radio">
                                 <label for="userexinfo-form-merriage-3">已婚</label>
                             </span>
                             <span>
-                                <input type="radio" name="marriage" id="userexinfo-form-merriage-4" value="为人父母"
+                                <input type="radio" name="marriage" id="userexinfo-form-merriage-4"  formControlName='marriage' value="为人父母"
                                     class="ui-radio">
                                 <label for="userexinfo-form-merriage-4">为人父母</label>
                             </span>
@@ -223,7 +229,9 @@
                             <p>从事行业：</p>
                             <span>
                                 <div class="ui-select">
-                                    <select id="job" name="job" class="ui-select">
+                                    <select id="job" name="job" class="ui-select" #job
+                                        formControlName='job'    
+                                    >
                                         <option value="">--</option>
                                         <option value="信息技术">信息技术</option>
                                         <option value="金融保险">金融保险</option>
@@ -238,11 +246,6 @@
                                         <option value="其他">其他</option>
                                     </select>
                                 </div>
-                                <div class="ui-select">
-                                    <select id="subjob" name="occupation" class="ui-select">
-                                        <option value="">--</option>
-                                    </select>
-                                </div>
                             </span>
                         </div>
 
@@ -250,77 +253,77 @@
                             <p>兴趣：</p>
                             <div class="interest-list">
                                 <span>
-                                    <input type="checkbox" name="interest[]" id="userexinfo-form-interest-1" value="美食"
+                                    <input type="checkbox" formControlName="interest1" name="interest[]" id="userexinfo-form-interest-1" value="美食"
                                         class="ui-checkbox">
                                     <label for="userexinfo-form-interest-1">美食</label>
                                 </span>
                                 <span>
-                                    <input type="checkbox" name="interest[]" id="userexinfo-form-interest-2" value="动漫"
+                                    <input type="checkbox" name="interest[]" formControlName="interest2" id="userexinfo-form-interest-2" value="动漫"
                                         class="ui-checkbox">
                                     <label for="userexinfo-form-interest-2">动漫</label>
                                 </span>
                                 <span>
-                                    <input type="checkbox" name="interest[]" id="userexinfo-form-interest-3" value="摄影"
+                                    <input type="checkbox" name="interest[]" formControlName="interest3" id="userexinfo-form-interest-3" value="摄影"
                                         class="ui-checkbox">
                                     <label for="userexinfo-form-interest-3">摄影</label>
                                 </span>
                                 <span>
-                                    <input type="checkbox" name="interest[]" id="userexinfo-form-interest-4" value="电影"
+                                    <input type="checkbox" name="interest[]" formControlName="interest4" id="userexinfo-form-interest-4" value="电影"
                                         class="ui-checkbox">
                                     <label for="userexinfo-form-interest-4">电影</label>
                                 </span>
                                 <span>
-                                    <input type="checkbox" name="interest[]" id="userexinfo-form-interest-5" value="体育"
+                                    <input type="checkbox" name="interest[]" formControlName="interest5" id="userexinfo-form-interest-5" value="体育"
                                         class="ui-checkbox">
                                     <label for="userexinfo-form-interest-5">体育</label>
                                 </span>
                                 <span>
-                                    <input type="checkbox" name="interest[]" id="userexinfo-form-interest-6" value="财经"
+                                    <input type="checkbox" name="interest[]" formControlName="interest6" id="userexinfo-form-interest-6" value="财经"
                                         class="ui-checkbox">
                                     <label for="userexinfo-form-interest-6">财经</label>
                                 </span>
                                 <span>
-                                    <input type="checkbox" name="interest[]" id="userexinfo-form-interest-7" value="音乐"
+                                    <input type="checkbox" name="interest[]" id="userexinfo-form-interest-7" formControlName="interest7" value="音乐"
                                         class="ui-checkbox">
                                     <label for="userexinfo-form-interest-7">音乐</label>
                                 </span>
                                 <span>
-                                    <input type="checkbox" name="interest[]" id="userexinfo-form-interest-8" value="游戏"
+                                    <input type="checkbox" name="interest[]" id="userexinfo-form-interest-8"  formControlName="interest8" value="游戏"
                                         class="ui-checkbox">
                                     <label for="userexinfo-form-interest-8">游戏</label>
                                 </span>
                                 <span>
-                                    <input type="checkbox" name="interest[]" id="userexinfo-form-interest-9" value="科技"
+                                    <input type="checkbox" formControlName="interest9" name="interest[]" id="userexinfo-form-interest-9" value="科技"
                                         class="ui-checkbox">
                                     <label for="userexinfo-form-interest-9">科技</label>
                                 </span>
                                 <span>
-                                    <input type="checkbox" name="interest[]" id="userexinfo-form-interest-10" value="旅游"
+                                    <input type="checkbox" name="interest[]" formControlName="interest10" id="userexinfo-form-interest-10" value="旅游"
                                         class="ui-checkbox">
                                     <label for="userexinfo-form-interest-10">旅游</label>
                                 </span>
                                 <span>
-                                    <input type="checkbox" name="interest[]" id="userexinfo-form-interest-11" value="文学"
+                                    <input type="checkbox" name="interest[]" formControlName="interest11" id="userexinfo-form-interest-11" value="文学"
                                         class="ui-checkbox">
                                     <label for="userexinfo-form-interest-11">文学</label>
                                 </span>
                                 <span>
-                                    <input type="checkbox" name="interest[]" id="userexinfo-form-interest-12" value="公益"
+                                    <input type="checkbox" name="interest[]" id="userexinfo-form-interest-12" formControlName="interest12" value="公益"
                                         class="ui-checkbox">
                                     <label for="userexinfo-form-interest-12">公益</label>
                                 </span>
                                 <span>
-                                    <input type="checkbox" name="interest[]" id="userexinfo-form-interest-13" value="汽车"
+                                    <input type="checkbox" name="interest[]" id="userexinfo-form-interest-13" formControlName="interest13" value="汽车"
                                         class="ui-checkbox">
                                     <label for="userexinfo-form-interest-13">汽车</label>
                                 </span>
                                 <span>
-                                    <input type="checkbox" name="interest[]" id="userexinfo-form-interest-14" value="时尚"
+                                    <input type="checkbox" name="interest[]" id="userexinfo-form-interest-14" formControlName="interest14" value="时尚"
                                         class="ui-checkbox">
                                     <label for="userexinfo-form-interest-14">时尚</label>
                                 </span>
                                 <span>
-                                    <input type="checkbox" name="interest[]" id="userexinfo-form-interest-15" value="宠物"
+                                    <input type="checkbox" name="interest[]" id="userexinfo-form-interest-15" formControlName="interest15" value="宠物"
                                         class="ui-checkbox">
                                     <label for="userexinfo-form-interest-15">宠物</label>
                                 </span>
@@ -330,14 +333,16 @@
                         <div class="userexinfo-form-section">
                             <p>个性签名：</p>
                             <span>
-                                <input type="text" name="signature" id="userexinfo-form-bio" class="ui-checkbox"
-                                    placeholder="20个字以内" value="">
+                                <input type="text"
+                                    formControlName ='sign' 
+                                    name="sign" id="userexinfo-form-bio" class="ui-checkbox"
+                                    placeholder="20个字以内" [value]="Sign">
                             </span>
                         </div>
                         <input id="csrf" type="hidden" name="csrf"
                             value="19d0a85665427b461ca039db1ca8bbed274805d604c0781de5242331589548ee">
                         <div class="userexinfo-bottom-section clearfix">
-                            <input type="submit" class="form-save-btn" value="保存">
+                            <div type="submit" class="form-save-btn" value="保存" (click)="saveMsg(checkoutForm.value)">保存</div>
                             <!-- <span id="cancell-btn" class="cancel_alert hand">注销账号1</span> -->
                         </div>
 

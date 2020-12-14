@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {BsDropdownConfig} from 'ngx-bootstrap/dropdown';
-
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-avator',
@@ -10,11 +10,14 @@ import {BsDropdownConfig} from 'ngx-bootstrap/dropdown';
 })
 export class UserAvatorComponent implements OnInit {
   imgUrl: string = "../../../assets/avator.png";
-
-  constructor() {
+  hovered: true
+  constructor(private router: Router) {
   }
 
   ngOnInit(): void {
   }
 
+  toUserCenter() {
+    this.router.navigateByUrl("/user/profile")
+  }
 }

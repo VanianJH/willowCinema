@@ -1,9 +1,11 @@
-import {Movie} from './../../interface/movie';
-import {DomSanitizer} from '@angular/platform-browser';
-import {BsModalService, BsModalRef} from 'ngx-bootstrap/modal';
-import {MovieSearchService} from '../../service/movie-search/movie-search.service';
-import {Component, OnInit, Input, TemplateRef} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import { Movie } from './../../interface/movie';
+import { DomSanitizer } from '@angular/platform-browser';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { MovieSearchService } from '../../service/movie-search/movie-search.service';
+import { Component, OnInit, Input, TemplateRef } from '@angular/core';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { MoviesService } from 'src/app/service/movies/movies.service';
 
 @Component({
   selector: 'app-movie-detail',
@@ -14,23 +16,57 @@ export class MovieDetailComponent implements OnInit {
   movie: Movie;
   showAllTimes = false;
   modalRef: BsModalRef;
-  selected: boolean = false;
+  isLiked: boolean = false;
+  likeAmount: number = 0;
+
+  likeMsg = "想看";
 
   constructor(
     private route: ActivatedRoute,
     private db: MovieSearchService,
     private modalService: BsModalService,
-    private sanitizer: DomSanitizer) {
+    private sanitizer: DomSanitizer,
+    private cookie: CookieService,
+    private movieService: MoviesService) {
   }
 
   ngOnInit() {
     this.getMovie();
   }
 
+  moviesFilter(ms) {
+    return ms.map(m => this.oneMovieFilter(m))
+  }
+
+  oneMovieFilter(m) {
+    this.isLiked = m['islike'];
+    this.likeAmount = m['likeCount'];
+    const prefix = "https://images.weserv.nl/?url=";
+    return {
+      id: m['id'],
+      title: m["name"],
+      poster: prefix + m["posterUrl"],
+      backdrop: prefix + m["bigPosterUrl"],
+      trailer: '',
+      overview: m["description"],
+      director: m["director"],
+      cast: String(m['starring']).split(' \/ '),
+      type: m["type"],
+      release_date: m["startDate"],
+      start_date: m["startDate"],
+      end_date: m["endDate"],
+      runtime: m["length"],
+      is_like: m["islike"],
+      like_count: m["likeCount"],
+      mpaa: "PG"
+    };
+  }
+
   getMovie(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-
-    this.db.getMovie(id).subscribe(movie => this.movie = movie);
+    const userId = JSON.parse(this.cookie.get('userMsg'))['id']
+    this.movieService.getMovieDetail(String(id), String(userId)
+    ).subscribe(movie => this.movie = this.oneMovieFilter(movie['content']));
   }
 
   // show all showtimes
@@ -61,7 +97,31 @@ export class MovieDetailComponent implements OnInit {
   }
 
   likeMovie() {
-    // todo
-    this.selected = ! this.selected;
+    const id = +this.route.snapshot.paramMap.get('id');
+
+    if (this.isLiked) {
+      this.likeAmount--;
+      this.movieService.unlikeMovie(String(id), String(JSON.parse(this.cookie.get('userMsg'))['id'])).subscribe(
+        res=> {
+          if(res['success']) {
+            console.log('success')
+          } else {
+            console.log(res['message'])
+          }
+        }
+      )
+    } else {
+      this.likeAmount++;
+      this.movieService.likeMovie(String(id), String(JSON.parse(this.cookie.get('userMsg'))['id'])).subscribe(
+        res=> {
+          if(res['success']) {
+            console.log('success')
+          } else {
+            console.log(res['message'])
+          }
+        }
+      )
+    }
+    this.isLiked = !this.isLiked;
   }
 }

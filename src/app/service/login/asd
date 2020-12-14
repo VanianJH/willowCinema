@@ -1,0 +1,5 @@
+fetch("http://localhost:8080/register",
+{ "headers": { "accept": "*/*", "accept-language": "zh-CN,zh-HK;q=0.9,zh;q=0.8,en-US;q=0.7,en;q=0.6,zh-TW;q=0.5", "cache-control": "no-cache", "content-type": "application/json", "pragma": "no-cache", "sec-fetch-dest": "empty", "sec-fetch-mode": "cors", "sec-fetch-site": "same-origin", "x-requested-with": "XMLHttpRequest" },
+"referrer": "http://localhost:8080/signUp", "referrerPolicy": "strict-origin-when-cross-origin",
+"body": "{\"username\":\"DXwei\",\"password\":\"123456\",\"secondPassword\":\"123456\"}",
+"method": "POST", "mode": "cors", "credentials": "include" });
