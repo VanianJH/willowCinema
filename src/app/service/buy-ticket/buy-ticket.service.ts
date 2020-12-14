@@ -35,7 +35,7 @@ export class BuyTicketService {
       baseUrl + '/ticket/lockSeat',
       ticketForm,
       this.options
-    ).pipe(timeout(3000), catchError(error => of({'message': 'Request timeout!'})))
+    ).pipe(timeout(8000), catchError(error => of({'message': 'Request timeout!'})))
     .toPromise();
     return res;
   }
@@ -45,7 +45,7 @@ export class BuyTicketService {
       baseUrl + "/ticket/vip/buy?ticketId="+String(ticketId)+"&couponId="+String(couponId),
       {},
       this.options
-    ).pipe(timeout(3000), catchError(error => of({'message': 'Request timeout!'})))
+    ).pipe(timeout(8000), catchError(error => of({'message': 'Request timeout!'})))
     .toPromise();
     return res;
   }

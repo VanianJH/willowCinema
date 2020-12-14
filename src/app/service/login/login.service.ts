@@ -16,7 +16,7 @@ export class LoginService {
       baseUrl+'/register',
       registerForm,
       this.options
-    ).pipe(timeout(3000), catchError(error => of({'message': 'Request timeout!'})))
+    ).pipe(timeout(8000), catchError(error => of({'message': 'Request timeout!'})))
     .toPromise();
     return res;
   }
@@ -26,7 +26,7 @@ export class LoginService {
       baseUrl+'/login',
       loginForm,
       this.options
-    ).pipe(timeout(3000), catchError(error => of({'message': 'Request timeout!'})))
+    ).pipe(timeout(8000), catchError(error => of({'message': 'Request timeout!'})))
     .toPromise();
     return res;
   }
@@ -34,7 +34,7 @@ export class LoginService {
   getCardId(userId) {
     const  res = this.http.get(
       baseUrl+"/vip/"+ userId + '/get'
-    ).pipe(timeout(3000), catchError(error => of({'message': 'Request timeout!'})))
+    ).pipe(timeout(8000), catchError(error => of({'message': 'Request timeout!'})))
     .toPromise();
     return res;
   }
@@ -44,7 +44,7 @@ export class LoginService {
         baseUrl+'/vip/add/directly?userId='+userId+ '&fare=25',
         {},
         this.options
-    ).pipe(timeout(3000), catchError(error => of({'message': 'Request timeout!'})))
+    ).pipe(timeout(8000), catchError(error => of({'message': 'Request timeout!'})))
     .toPromise();
     return res;
   }
@@ -57,7 +57,7 @@ export class LoginService {
         amount: 10000
     },
     this.options
-    ).pipe(timeout(3000), catchError(error => of({'message': 'Request timeout!'})))
+    ).pipe(timeout(8000), catchError(error => of({'message': 'Request timeout!'})))
     .toPromise();
     return res;
   }

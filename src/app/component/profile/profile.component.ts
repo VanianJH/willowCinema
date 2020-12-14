@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
+import { UserService } from 'src/app/service/User/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -11,7 +13,9 @@ export class ProfileComponent implements OnInit {
   occupation: { [key: string]: string[] } = { "信息技术": ["互联网", "IT", "通信", "电子", "游戏"], "金融保险": ["投资", "股票基金", "保险", "银行", "信托担保"], "商业服务": ["资讯", "贸易", "美容保健", "家政服务", "旅游", "餐饮酒店", "娱乐休闲", "批发零售", "汽车"], "建筑地产": ["房地产", "建筑", "物业", "装修"], "工程制造": ["机械制造", "生物医药", "食品", "服装", "能源", "化工"], "交通运输": ["航空", "铁路", "航运船舶", "公共交通", "物流运输"], "文化传媒": ["媒体出版", "设计", "广告创意", "动漫", "公关会展", "摄影"], "娱乐体育": ["影视", "运动体育", "音乐", "模特"], "公共事业": ["医疗", "教育", "政府机关", "科研", "公益机构", "农林牧渔"], "学生": ["学生"], "其他": ["其他"] };
   checkoutForm;
 
-  constructor(private formBuilder: FormBuilder,) {
+  constructor(private formBuilder: FormBuilder,
+    private userService: UserService,
+    private cookie: CookieService) {
 
     this.checkoutForm = this.formBuilder.group({
       name: '',
@@ -54,57 +58,43 @@ export class ProfileComponent implements OnInit {
   Sign: string = "全都是泡沫~~";
 
   ngOnInit(): void {
-    this.checkoutForm = this.formBuilder.group({
-      day: "4",
-      interest1: false,
-      interest2: true,
-      interest3: false,
-      interest4: false,
-      interest5: false,
-      interest6: false,
-      interest7: false,
-      interest8: false,
-      interest9: false,
-      interest10: false,
-      interest11: true,
-      interest12: false,
-      interest13: false,
-      interest14: false,
-      interest15: true,
-      job: "金融保险",
-      marriage: "单身",
-      month: "5",
-      name: "凛冬将至",
-      sex: "1",
-      sign: "吹啊吹啊，我的骄傲放纵~~",
-      year: "2017",
-    })
+    // this.checkoutForm = this.formBuilder.group({
+    //   day: "4",
+    //   interest1: false,
+    //   interest2: true,
+    //   interest3: false,
+    //   interest4: false,
+    //   interest5: false,
+    //   interest6: false,
+    //   interest7: false,
+    //   interest8: false,
+    //   interest9: false,
+    //   interest10: false,
+    //   interest11: true,
+    //   interest12: false,
+    //   interest13: false,
+    //   interest14: false,
+    //   interest15: true,
+    //   job: "金融保险",
+    //   marriage: "单身",
+    //   month: "5",
+    //   name: "凛冬将至",
+    //   sex: "1",
+    //   sign: "吹啊吹啊，我的骄傲放纵~~",
+    //   year: "2017",
+    // })
+    console.log('userId: ',JSON.parse(this.cookie.get('userMsg'))['id'])
+    this.userService.getUserProfile(JSON.parse(this.cookie.get('userMsg'))['id'])
+        .subscribe(res=>{
+          if(res['success']) {
+            let igot = JSON.parse(res['content'])
+            console.log('igot:', igot)
+            this.checkoutForm = this.formBuilder.group(igot)
+          }
+        })
 
-    console.log(JSON.stringify({
-      day: "4",
-      interest1: false,
-      interest2: true,
-      interest3: false,
-      interest4: false,
-      interest5: false,
-      interest6: false,
-      interest7: false,
-      interest8: false,
-      interest9: false,
-      interest10: false,
-      interest11: true,
-      interest12: false,
-      interest13: false,
-      interest14: false,
-      interest15: true,
-      job: "金融保险",
-      marriage: "单身",
-      month: "5",
-      name: "凛冬将至",
-      sex: "1",
-      sign: "吹啊吹啊，我的骄傲放纵~~",
-      year: "2017",
-    }))
+
+    // console.log('msg',JSON.parse("{\"day\":\"4\",\"interest1\":false,\"interest2\":true,\"interest3\":false,\"interest4\":false,\"interest5\":false,\"interest6\":false,\"interest7\":false,\"interest8\":false,\"interest9\":false,\"interest10\":false,\"interest11\":true,\"interest12\":false,\"interest13\":false,\"interest14\":false,\"interest15\":true,\"job\":\"金融保险\",\"marriage\":\"单身\",\"month\":\"5\",\"name\":\"凛冬将至\",\"sex\":\"1\",\"sign\":\"吹啊吹啊，我的骄傲放纵~~\",\"year\":\"2017\"}"))
 
   }
 
@@ -122,6 +112,10 @@ export class ProfileComponent implements OnInit {
 
   saveMsg(v) {
     console.log(v)
+    this.userService.saveUserProfile(JSON.parse(this.cookie.get('userMsg'))['id'], v).subscribe(res=>{
+      if(res['success']) {}
+      else {}
+    })
   }
 
   onSubmit(customerData) {
