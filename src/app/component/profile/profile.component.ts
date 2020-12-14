@@ -80,6 +80,32 @@ export class ProfileComponent implements OnInit {
       year: "2017",
     })
 
+    console.log(JSON.stringify({
+      day: "4",
+      interest1: false,
+      interest2: true,
+      interest3: false,
+      interest4: false,
+      interest5: false,
+      interest6: false,
+      interest7: false,
+      interest8: false,
+      interest9: false,
+      interest10: false,
+      interest11: true,
+      interest12: false,
+      interest13: false,
+      interest14: false,
+      interest15: true,
+      job: "金融保险",
+      marriage: "单身",
+      month: "5",
+      name: "凛冬将至",
+      sex: "1",
+      sign: "吹啊吹啊，我的骄傲放纵~~",
+      year: "2017",
+    }))
+
   }
 
   verifyGender(a) {
