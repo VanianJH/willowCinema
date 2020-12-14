@@ -4,12 +4,11 @@ import { Observable, of, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { timeout } from 'rxjs/operators';
 import { tick } from '@angular/core/testing';
-
+import {baseUrl} from "../baseUrl"
 @Injectable({
   providedIn: 'root'
 })
 export class BuyTicketService {
-  
   nowTicketMsg =  {
     filmName: "", 
     time: "",
@@ -27,13 +26,13 @@ export class BuyTicketService {
   
   getSeatMsg(sid: string) {
     return this.http.get(
-      'http://localhost:8080/ticket/get/occupiedSeats?scheduleId='+sid
+      baseUrl + '/ticket/get/occupiedSeats?scheduleId='+sid
     )
   }
 
   getTicketLock(ticketForm) {
     const res = this.http.post(
-      'http://localhost:8080/ticket/lockSeat',
+      baseUrl + '/ticket/lockSeat',
       ticketForm,
       this.options
     ).pipe(timeout(3000), catchError(error => of({'message': 'Request timeout!'})))
@@ -43,7 +42,7 @@ export class BuyTicketService {
 
   vipBuy(ticketId, couponId) {
     const res = this.http.post(
-      "http://localhost:8080/ticket/vip/buy?ticketId="+String(ticketId)+"&couponId="+String(couponId),
+      baseUrl + "/ticket/vip/buy?ticketId="+String(ticketId)+"&couponId="+String(couponId),
       {},
       this.options
     ).pipe(timeout(3000), catchError(error => of({'message': 'Request timeout!'})))
@@ -53,7 +52,7 @@ export class BuyTicketService {
 
   getCoupon(ticketId) {
     return this.http.post(
-      "http://localhost:8080/ticket/generateOrder?ticketIds="+String(ticketId),
+      baseUrl + "/ticket/generateOrder?ticketIds="+String(ticketId),
       {},
       this.options
     )
@@ -61,19 +60,19 @@ export class BuyTicketService {
 
   getUserTickets(userID){
     return this.http.get(
-      "http://localhost:8080/ticket/get/"+userID
+      baseUrl + "/ticket/get/"+userID
     )
   }
 
   getScheduleById(id) {
     return this.http.get(
-      "http://localhost:8080/schedule/" + id
+      baseUrl + "/schedule/" + id
     )
   }
 
   getMovieDetailById(movieId, userId) {
     return this.http.get(
-      "http://localhost:8080/movie/"+movieId+"/" + userId
+      baseUrl + "/movie/"+movieId+"/" + userId
     )
   }
 

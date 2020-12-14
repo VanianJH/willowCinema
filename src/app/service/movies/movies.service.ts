@@ -4,6 +4,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { timeout } from 'rxjs/operators';
 import { Movie } from 'src/app/interface/movie';
+import { baseUrl } from '../baseUrl';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class MoviesService {
   options = { headers: this.headers };
   getFrontPageMovies(num: number) {
     return this.http.get(
-      'http://localhost:8080/movie/like/list?num=' + num,
+      baseUrl + '/movie/like/list?num=' + num,
     )
   }
 
@@ -27,13 +28,13 @@ export class MoviesService {
 
   getMovieDetail(movieId: string, userId: string) {
     return this.http.get(
-      'http://localhost:8080/movie/' + movieId + '/' + userId
+      baseUrl+'/movie/' + movieId + '/' + userId
     )
   }
 
   likeMovie(movieId: string, userId: string) {
     return this.http.post(
-      'http://localhost:8080/movie/' + movieId + '/like?userId=' + userId,
+      baseUrl+'/movie/' + movieId + '/like?userId=' + userId,
       {},
       this.options
     )
@@ -41,7 +42,7 @@ export class MoviesService {
 
   unlikeMovie(movieId: string, userId: string) {
     return this.http.post(
-      'http://localhost:8080/movie/' + movieId + '/unlike?userId=' + userId,
+      baseUrl+'/movie/' + movieId + '/unlike?userId=' + userId,
       {},
       this.options
     )
@@ -49,7 +50,7 @@ export class MoviesService {
 
   getMovieShowTimes(movieId: string) {
     return this.http.get(
-        'http://localhost:8080/schedule/search/audience?movieId='+ movieId
+        baseUrl+'/schedule/search/audience?movieId='+ movieId
     )
   }
   
@@ -95,7 +96,7 @@ export class MoviesService {
   searchMovie(term: string) {
     this.nowTerm = term;
     this.http.get(
-      "http://localhost:8080/movie/search?keyword="+term+this.nowA+this.nowB
+      baseUrl+"/movie/search?keyword="+term+this.nowA+this.nowB
     ).subscribe(res=>{
       if(res['success']) {
         this.searchedMovies =  res
@@ -110,7 +111,7 @@ export class MoviesService {
     this.nowA = a 
     this.nowB = b
     this.http.get(
-      "http://localhost:8080/movie/search?keyword="+this.nowTerm+a+b
+      baseUrl + "/movie/search?keyword="+this.nowTerm+a+b
     ).subscribe(res=>{
       if(res['success']) {
         this.searchedMovies =  res

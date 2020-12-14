@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders, } from '@angular/common/htt
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { timeout } from 'rxjs/operators';
-
+import  {baseUrl} from '../baseUrl'
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +13,7 @@ export class LoginService {
 
   getSignUp(registerForm) {
     const res = this.http.post(
-      'http://localhost:8080/register',
+      baseUrl+'/register',
       registerForm,
       this.options
     ).pipe(timeout(3000), catchError(error => of({'message': 'Request timeout!'})))
@@ -23,7 +23,7 @@ export class LoginService {
 
   getLogin(loginForm) {
     const res = this.http.post(
-      'http://localhost:8080/login',
+      baseUrl+'/login',
       loginForm,
       this.options
     ).pipe(timeout(3000), catchError(error => of({'message': 'Request timeout!'})))
@@ -33,7 +33,7 @@ export class LoginService {
 
   getCardId(userId) {
     const  res = this.http.get(
-      "http://localhost:8080/vip/"+ userId + '/get'
+      baseUrl+"/vip/"+ userId + '/get'
     ).pipe(timeout(3000), catchError(error => of({'message': 'Request timeout!'})))
     .toPromise();
     return res;
@@ -41,7 +41,7 @@ export class LoginService {
 
   generateCard(userId) {
     const res = this.http.post(
-        'http://localhost:8080/vip/add/directly?userId='+userId+ '&fare=25',
+        baseUrl+'/vip/add/directly?userId='+userId+ '&fare=25',
         {},
         this.options
     ).pipe(timeout(3000), catchError(error => of({'message': 'Request timeout!'})))
@@ -51,7 +51,7 @@ export class LoginService {
 
   chargeCard(cardId) {
     const res = this.http.post(
-      'http://localhost:8080/vip/charge/directly',
+      baseUrl+'/vip/charge/directly',
       {
         vipId: cardId,
         amount: 10000
