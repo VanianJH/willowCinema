@@ -17,13 +17,14 @@ export class UserCenterComponent implements OnInit {
     private route: ActivatedRoute, private router: Router,
     private login: LoginService) { }
 
-  ticketMsgs: any[] = [];
+  orderMsgs: any[] = [];
 
   ngOnInit(): void {
-    this.buy.getUserTicketsDetail(JSON.parse(this.cookie.get('userMsg'))['id'], this.ticketMsgs)
+    this.buy.getUserOrdersDetail(JSON.parse(this.cookie.get('userMsg'))['id'], this.orderMsgs)
   }
+  
 
-  getTicketStatus(state) {
+  getOrderStatus(state) {
     if (state === 1) {
       return '已完成';
     } else if (state === 2) {
@@ -35,8 +36,8 @@ export class UserCenterComponent implements OnInit {
     }
   }
 
-  async payTicket(tid) {
-    const res = await this.buy.vipBuy(tid, 0)
+  async payTicket( orderId, ticketIds) {
+    const res = await this.buy.vipBuy(orderId, ticketIds, 0)
     if (res['success']) {
       this.reload()
     } else {
@@ -44,7 +45,7 @@ export class UserCenterComponent implements OnInit {
       if(res['success']) {
         const nres = await this.login.chargeCard(res['content']['id']);
         if(nres['success']) {
-          const res = await this.buy.vipBuy(tid, 0)
+          const res = await this.buy.vipBuy(orderId, ticketIds, 0)
           if(res['success']) {
             this.reload()
           }

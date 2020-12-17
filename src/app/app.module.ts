@@ -39,6 +39,7 @@ import { CouponSelectComponent } from './component/coupon-select/coupon-select.c
 import { UserCardsComponent } from './component/user-cards/user-cards.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CouponComponent } from './component/coupon/coupon.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +69,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PayResultComponent,
     RegisterComponent,
     CouponSelectComponent,
-    UserCardsComponent
+    UserCardsComponent,
+    CouponComponent
   ],
   imports: [
     BrowserModule,

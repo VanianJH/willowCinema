@@ -38,6 +38,7 @@ export class ConfirmSeatComponent implements OnInit {
   seats: number[][] = [[1, 2]]; 
   price: number= 28;
   tickets: any = []
+  orderId: string = ''
   updateMsg(msg) {
     this.movieName = msg['filmName']
     this.date = msg['time']
@@ -45,6 +46,7 @@ export class ConfirmSeatComponent implements OnInit {
     this.hallName = msg['hall']
     this.price = msg['price']
     this.tickets =msg['tickets']
+    this.orderId = msg['orderId']
     this.setCouponMsg()
   }
 
@@ -77,17 +79,16 @@ export class ConfirmSeatComponent implements OnInit {
     if(this.timeout) {
       this.route.navigateByUrl('/')
     } else {
-      for(let k of this.tickets) {
-        const res = await this.buy.vipBuy(k['id'], this.couponID);
-        if(res['success']) {
-          console.log(res)
-        } else {
-          const cardres = await this.login.getCardId(JSON.parse(this.cookie.get('userMsg'))['id'])
-          if(cardres['success']) {
-            const chargeRes = await this.login.chargeCard(cardres['content']['id'])
-            if(chargeRes['success']) {
-              const nres = await this.buy.vipBuy(k['id'], this.couponID);
-            }
+      let tids = this.tickets.map(a=>a['id'])
+      const res  = await this.buy.vipBuy(this.orderId, tids, this.couponID) 
+      if(res['success']) {
+        console.log(res)
+      } else {
+        const cardres = await this.login.getCardId(JSON.parse(this.cookie.get('userMsg'))['id'])
+        if(cardres['success']) {
+          const chargeRes = await this.login.chargeCard(cardres['content']['id'])
+          if(chargeRes['success']) {
+            const nres = await this.buy.vipBuy(this.orderId, tids, this.couponID);
           }
         }
       }

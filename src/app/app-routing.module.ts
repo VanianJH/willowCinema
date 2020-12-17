@@ -14,6 +14,7 @@ import { ProfileComponent } from './component/profile/profile.component';
 import {PayResultComponent} from './component/pay-result/pay-result.component';
 import {RegisterComponent} from './component/register/register.component';
 import { CouponSelectComponent } from './component/coupon-select/coupon-select.component';
+import { UserCardsComponent } from './component/user-cards/user-cards.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'user', component: UserCenterComponent},
   {path: 'user/orders', component: UserCenterComponent},
   {path: 'user/profile', component: ProfileComponent},
+  {path:'user/cards', component:UserCardsComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent}
 ];

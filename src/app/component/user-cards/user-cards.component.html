@@ -1,1 +1,71 @@
-<p>user-cards works!</p>
+<div class="container" id="app">
+    <div class="content">
+        <div class="main">
+            <div class="info-content clearfix">
+                <div class="user-profile-nav">
+                    <h1>个人中心</h1>
+                    <a href="/user/orders" class="orders">我的订单</a>
+                    <a href="/user/cards" class="profile active">我的卡包</a>
+                    <a href="/user/profile" class="profile ">基本信息</a>
+                </div>
+                <div class="orders-container">
+                    <div class="profile-title">我的会员卡</div>
+                    <div class="vipCard">
+                    </div>
+                    <div class="profile-title">我的优惠券</div>
+                    <div class="couponlist">
+                        <app-coupon
+                            *ngFor="let coupon of couponList"
+                            [couponMsg] = "coupon">
+                        </app-coupon>  
+                    </div>
+
+                </div> 
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- <div class="mask3">
+        <div class="modal-container" style="display:none">
+            <div class="modal">
+                <span class="icon"></span>
+
+                <p class="tip">您确定要删除该订单嘛？删除后，不可恢复～</p>
+
+                <div class="short btn ok-btn">确定</div>
+                <div class="short btn cancel-btn">取消</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mask1">
+        <div class="modal-container" style="display:none">
+            <div class="modal">
+                <span class="icon"></span>
+
+                <p class="tip">请注意，注销账号会清空所有订单信息、影评、积分、<br>账户余额等信息且无法找回，是否继续？</p>
+
+                <div class="short btn ok-btn">确定</div>
+                <div class="short btn cancel-btn">取消</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mask2">
+        <div class="modal-container" style="display:none">
+            <div class="modal">
+                <span class="icon"></span>
+
+                <p class="tip">请联系客服10105335</p>
+
+                <div class="ok-btn btn">我知道了</div>
+            </div>
+        </div>
+
+    </div> -->
+
+</div>

@@ -126,51 +126,6 @@ export class SeatChartComponent {
 
         });
       }
-
-
-      // for (let __counter = 0; __counter < map_data.length; __counter++) {
-      //   var row_label = "";
-      //   var rowLblArr = map_data[__counter]["seat_labels"];
-      //   var seatMapArr = map_data[__counter]["seat_map"];
-      //   for (let rowIndex = 0; rowIndex < rowLblArr.length; rowIndex++) {
-      //     var rowItem = rowLblArr[rowIndex];
-      //     var mapObj = {
-      //       "seatRowLabel" : rowItem,
-      //       "seats" : []
-      //     };
-      //     var seatValArr = seatMapArr[rowIndex].split('');
-      //     var seatNoCounter = 1;
-      //     var totalItemCounter = 1;
-      //     seatValArr.forEach(item => {
-      //       var seatObj = {
-      //         "key" : rowItem+"_"+totalItemCounter,
-      //         "price" : map_data[__counter]["seat_price"],
-      //         "status" : "available"
-      //       };
-
-      //       if( item != '_')
-      //       {
-      //         seatObj["seatLabel"] = rowItem+" "+seatNoCounter;
-      //         if(seatNoCounter < 10)
-      //         { seatObj["seatNo"] = "0"+seatNoCounter; }
-      //         else { seatObj["seatNo"] = ""+seatNoCounter; }
-
-      //         seatNoCounter++;
-      //       }
-      //       else
-      //       {
-      //         seatObj["seatLabel"] = "";
-      //       }
-      //       totalItemCounter++;
-      //       mapObj["seats"].push(seatObj);
-      //     });
-      //     console.log(" \n\n\n Seat Objects " , mapObj);
-      //     this.seatmap.push( mapObj );
-      //     console.log(" \n\n\n Seat Map " , this.seatmap);
-
-      //   }
-
-      // }
     }
   }
 

@@ -125,7 +125,7 @@ export class TicketChartComponent implements OnInit {
       scheduleId: sid,
       seats: this.selectedTickets.map(s=>this.seatFilter(s))
     };
-    let res = await this.buy.getTicketLock(ticketForm)
+    let res = await this.buy.getTicketLock(ticketForm);
     if(res['success']) {
       this.father.updateConfirmMsg({
         filmName: this.filmName, 
@@ -133,7 +133,8 @@ export class TicketChartComponent implements OnInit {
         hall: this.hall,
         seat: this.selectedTickets,
         price: this.amount,
-        tickets: res['content']
+        tickets: res['content']['tickets'],
+        orderId: res['content']['orderId']
       })
       this.next() 
     } else {

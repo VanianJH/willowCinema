@@ -1,0 +1,89 @@
+.allCoupon {
+	padding: 0;
+	margin: 0;
+	color: rgb(255, 255, 255);
+	font-family: "Microsoft YaHei";
+    font-size: 13px;
+	margin-bottom: 10px;
+	margin-right: 28px;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0rem;
+}
+
+.basic-style .coupon {
+	position: relative;
+	width: 363px;
+	height: 120px;
+	overflow: hidden;
+	background-color: #F39B00;
+	background: radial-gradient(rgba(0, 0, 0, 0) 0, rgba(255, 0, 0, 0) 5px, #F39B00 5px);
+	background-size: 15px 15px;
+    background-position: 9px 3px;
+    
+}
+
+.basic-style .coupon:before{
+	content: '';
+	position: absolute;
+	top:0;
+	bottom:0;
+	left:10px;
+	right:10px;
+	z-index: -1;
+    background-color:#F39B00;
+}
+
+.basic-style .coupon i{
+	position: absolute;
+	left: 20%;
+	top: 45px;
+	height: 190px;
+	width: 390px;
+	background-color: rgba(255, 255, 255, .15);
+	transform: rotate(-30deg);
+}
+
+.basic-style .coupon .main-coupon {
+	float: left;
+	width: 220px;
+	height: 100%;
+	border-right: 2px dashed rgba(255, 255, 255, 0.3);
+    padding: 15px;
+    padding-left: 20px;
+    
+}
+
+
+.basic-style .coupon .vice-coupon {
+	width: 120px;
+	padding: 15px;
+	display: inline-block;
+}
+
+
+.basic-style .coupon .vice-coupon {
+	text-align: center;
+}
+
+.basic-style .coupon .coupon-value {
+	font-size: 25px;
+    margin-top: 8px;
+    margin-bottom: 5px;
+}
+
+.basic-style .coupon .vice-coupon .coupon-required {
+	margin-top: 10px;
+	text-align: center;
+}
+
+.basic-style .coupon .vice-coupon .title{
+	font-size: 13px;
+}
+
+.basic-style .coupon .vice-coupon .start-date{
+	margin-top: 25px;
+}
+

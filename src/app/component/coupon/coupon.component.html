@@ -1,0 +1,16 @@
+<div class="allCoupon">
+    <div class="basic-style">
+        <div class="coupon">
+          <div class="main-coupon">
+            <p class="coupon-shop">{{couponMsg.name}}</p>
+            <p class="coupon-value"> <span>￥</span> {{couponMsg.discountAmount}} <span>优惠券</span></p>
+            <p class="coupon-required">订单满{{couponMsg.targetAmount}}元使用</p>
+          </div>
+          <div class="vice-coupon">
+            <p class="title">有效日期</p>
+            <p class="start-date">{{couponMsg.startTime.slice(0, 10)}}至</p>
+            <p class="end-date">{{couponMsg.endTime.slice(0, 10)}}</p>
+          </div>
+        </div>
+      </div>
+</div>

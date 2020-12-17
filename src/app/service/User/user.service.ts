@@ -28,4 +28,10 @@ export class UserService {
       this.options
     )
   }
+
+  getUserCoupons(userId) {
+    return this.http.get(
+      baseUrl + '/coupon/' + userId + '/get'
+    )
+  }
 }
