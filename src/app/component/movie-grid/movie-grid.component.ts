@@ -40,8 +40,10 @@ export class MovieGridComponent implements OnInit {
     return {
       id: m['id'],
       title: m["name"],
-      poster: prefix + m["posterUrl"],
-      backdrop: prefix+  m["bigPosterUrl"],
+      // poster: prefix + m["posterUrl"],
+      // backdrop: prefix+  m["bigPosterUrl"],
+      poster:  m["posterUrl"],
+      backdrop: m["bigPosterUrl"],
       trailer: '',
       overview: m["description"],
       director: m["director"],

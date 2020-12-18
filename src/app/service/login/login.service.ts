@@ -54,7 +54,7 @@ export class LoginService {
       baseUrl+'/vip/charge/directly',
       {
         vipId: cardId,
-        amount: 10000
+        amount: 50
     },
     this.options
     ).pipe(timeout(8000), catchError(error => of({'message': 'Request timeout!'})))
