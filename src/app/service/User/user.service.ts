@@ -10,21 +10,21 @@ import { baseUrl } from '../baseUrl';
   providedIn: 'root'
 })
 export class UserService {
-  headers = new HttpHeaders({ 'Content-Type': 'application/json'});
+  headers = new HttpHeaders({ 'Content-Type': 'application/json' });
   options = { headers: this.headers };
 
   constructor(private http: HttpClient) { }
 
   getUserProfile(userId) {
     return this.http.get(
-      baseUrl + "/user/profile/"+userId
+      baseUrl + "/user/profile/" + userId
     )
   }
 
   saveUserProfile(userId, msg) {
     return this.http.post(
-      baseUrl + "/user/profile/"+userId,
-      {profile: msg},
+      baseUrl + "/user/profile/" + userId,
+      { profile: msg },
       this.options
     )
   }
@@ -38,6 +38,17 @@ export class UserService {
   getUserVipCard(userId) {
     return this.http.get(
       baseUrl + '/vip/' + userId + '/get'
+    )
+  }
+
+  chargeCard(cardId, fare) {
+    return this.http.post(
+      baseUrl + '/vip/charge/directly',
+      {
+        vipId: cardId,
+        amount: fare
+      },
+      this.options
     )
   }
 }

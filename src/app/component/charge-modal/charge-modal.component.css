@@ -19,8 +19,22 @@
     right: 0px;
     position: absolute;
 }
-  
 
 .charge-button{
     width: 100%;
+}
+  
+.ButtonS{
+    width: 100%;
+    display: flex;
+}
+
+
+.cancelBtn{
+    margin-left: auto;
+}
+
+.confirmBtn {
+    margin-right: 0px;
+    margin-left: 20px;
 }

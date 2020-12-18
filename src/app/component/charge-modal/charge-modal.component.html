@@ -3,21 +3,38 @@
 <ng-template #template>
   <div class="modal-header">
     <h4 class="modal-title pull-left">Modal</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="cancel()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    <input nz-input placeholder="Basic usage" [(ngModel)]="bankCardId" />
+    <input nz-input placeholder="银行卡号" [(ngModel)]="bankCardId" />
     <br />
     <br />
-    <input nz-input placeholder="Basic usage" [(ngModel)]="bankCardPassWord" />
+    <input nz-input placeholder="银行卡密码" [(ngModel)]="bankCardPassWord" type='password'/>
     <br />
     <br />
-    <input nz-input placeholder="Basic usage" [(ngModel)]="fare" />
+    <input nz-input placeholder="充值金额" [(ngModel)]="fare" />
     <br />
     <br />
-    <button nz-button nzType="primary" (click)="charge()" [nzLoading]="isCharging">
-      <i nz-icon nzType="money-collect" nzTheme="outline"></i>Click me!</button>
+    <div class="ButtonS">
+        <button 
+        nz-button 
+        nzType="default" 
+        class="cancelBtn"
+        (click)="cancel()">
+        取消
+    </button>
+    <button 
+        nz-button 
+        nzType="primary" 
+        (click)="charge()" 
+        class="confirmBtn"
+        [nzLoading]="isCharging" 
+        nzDanger>
+        充值
+    </button>
+    </div>
+
   </div>
 </ng-template>

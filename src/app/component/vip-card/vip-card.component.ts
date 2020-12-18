@@ -29,6 +29,18 @@ export class VipCardComponent implements OnInit{
         })
   }
 
+  updateMsg(){
+    this.user.getUserVipCard(JSON.parse(this.cookie.get('userMsg'))['id'])
+    .subscribe(res=>{
+      if(res['success']) {
+        console.log(res['content'])
+        this.id = res['content']['id']
+        this.balance = res['content']['balance']
+        this.joinDate = res['content']['joinDate'].slice(0, 10)
+      } 
+    })
+  }
+
   
 
   isVisible = false;
