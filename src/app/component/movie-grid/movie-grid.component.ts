@@ -34,16 +34,25 @@ export class MovieGridComponent implements OnInit {
   moviesFilter(ms) {
     return ms.map(m=>this.oneMovieFilter(m))
   }
+  
+  imgFilter(url: string) {
+    const prefix = "https://images.weserv.nl/?url=";
+    const searchUrl  = "images.weserv.nl";
+    let res;
+    if(url.search(searchUrl)===-1) {
+      res = prefix + url
+    } else {
+      res = url
+    }
+    console.log(url, res)
+  }
 
   oneMovieFilter(m) {
-    const prefix = "https://images.weserv.nl/?url=";
     return {
       id: m['id'],
       title: m["name"],
-      // poster: prefix + m["posterUrl"],
-      // backdrop: prefix+  m["bigPosterUrl"],
-      poster:  m["posterUrl"],
-      backdrop: m["bigPosterUrl"],
+      poster:  (m["posterUrl"]),
+      backdrop: (m["bigPosterUrl"]),
       trailer: '',
       overview: m["description"],
       director: m["director"],
