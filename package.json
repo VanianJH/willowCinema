@@ -4,12 +4,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod --aot",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "dev": "lite-server --baseDir=\"dist/willowCinema\"",
-    "deploy": "ng deploy --base-href=https://VanianJH.github.io/HCI/"
+    "deploy": "ng deploy --base-href=/HCI/ --repo=blabla --no-silent"
   },
   "private": true,
   "dependencies": {
@@ -37,7 +37,7 @@
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
-    "angular-cli-ghpages": "^1.0.0-rc.1",
+    "angular-cli-ghpages": "latest",
     "codelyzer": "^6.0.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
