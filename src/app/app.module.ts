@@ -40,6 +40,21 @@ import { UserCardsComponent } from './component/user-cards/user-cards.component'
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CouponComponent } from './component/coupon/coupon.component';
+import { VipCardComponent } from './component/vip-card/vip-card.component';
+
+import {NzMessageModule} from 'ng-zorro-antd/message';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzStatisticModule } from 'ng-zorro-antd/statistic';
+import { NzPipesModule } from 'ng-zorro-antd/pipes';
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzModalModule } from 'ng-zorro-antd/modal';
+import { ChargeModalComponent } from './component/charge-modal/charge-modal.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,7 +85,9 @@ import { CouponComponent } from './component/coupon/coupon.component';
     RegisterComponent,
     CouponSelectComponent,
     UserCardsComponent,
-    CouponComponent
+    CouponComponent,
+    VipCardComponent,
+    ChargeModalComponent
   ],
   imports: [
     BrowserModule,
@@ -78,6 +95,17 @@ import { CouponComponent } from './component/coupon/coupon.component';
     AppRoutingModule,
     FormsModule, 
     ReactiveFormsModule,
+    NzMessageModule,
+    NzGridModule,
+    NzStatisticModule,
+    NzPipesModule,
+    NzCardModule,
+    NzDividerModule,
+    NzIconModule,
+    NzButtonModule,
+    NzFormModule,
+    NzInputModule,
+    NzModalModule,
     ModalModule.forRoot(),
     CarouselModule.forRoot(),
     BsDropdownModule.forRoot(),

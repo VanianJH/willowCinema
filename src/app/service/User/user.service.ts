@@ -34,4 +34,10 @@ export class UserService {
       baseUrl + '/coupon/' + userId + '/get'
     )
   }
+
+  getUserVipCard(userId) {
+    return this.http.get(
+      baseUrl + '/vip/' + userId + '/get'
+    )
+  }
 }

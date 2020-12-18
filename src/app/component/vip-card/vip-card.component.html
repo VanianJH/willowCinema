@@ -1,0 +1,28 @@
+<nz-card class="card-container"  nzTitle="会员卡信息">
+    <nz-row [nzGutter]="16">
+        <nz-col [nzSpan]="12">
+          <nz-statistic [nzValue]="(1949101+id)!" [nzTitle]="'会员卡号'"></nz-statistic>
+        </nz-col>
+        <nz-col [nzSpan]="12">
+          <nz-statistic [nzValue]="(joinDate)!" [nzTitle]="'入会日期'"></nz-statistic>
+        </nz-col>
+    </nz-row>   
+    
+    <nz-divider></nz-divider>
+    
+    <nz-row [nzGutter]="16">
+        <nz-col [nzSpan]="12">
+          <nz-statistic [nzValue]="('满100送30')!"  [nzTitle]="'充值优惠'"></nz-statistic>
+        </nz-col>
+        <nz-col [nzSpan]="12">
+          <nz-statistic [nzValue]="((balance | number) + '元')! " [nzTitle]="'余额'"></nz-statistic>
+        </nz-col>
+    </nz-row>    
+    <nz-divider></nz-divider>
+
+    <nz-row [nzGutter]="16">
+        <app-charge-modal class='charge-modal'></app-charge-modal>
+    </nz-row>    
+
+
+</nz-card>

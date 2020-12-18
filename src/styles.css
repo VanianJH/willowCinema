@@ -1,5 +1,12 @@
+@import "~ng-zorro-antd/ng-zorro-antd.min.css";
+@import "~ng-zorro-antd/message/style/index.min.css"; 
+@import "~ng-zorro-antd/form/style/index.min.css"; 
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~bs-stepper/dist/css/bs-stepper.min.css';
+
+.anticon, .anticon svg {
+    display: inline-flex;
+}
 
 body {
     /* background: linear-gradient(to bottom, #191919 0, #000 100%) no-repeat #000; */

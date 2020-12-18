@@ -1,11 +1,11 @@
 import { Component, TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 @Component({
-  selector: 'app-instant-test',
-  templateUrl: './instant-test.component.html',
-  styleUrls: ['./instant-test.component.css'],
+  selector: 'app-charge-modal',
+  templateUrl: './charge-modal.component.html',
+  styleUrls: ['./charge-modal.component.css']
 })
-export class InstantTestComponent{
+export class ChargeModalComponent {
   modalRef: BsModalRef;
   constructor(private modalService: BsModalService) {}
 
@@ -17,6 +17,8 @@ export class InstantTestComponent{
     this.modalRef = this.modalService.show(template);
   }
 
-  
-}
+  charge() {}
 
+  isCharging = false;
+
+}
