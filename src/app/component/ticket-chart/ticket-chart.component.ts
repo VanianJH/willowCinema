@@ -60,7 +60,9 @@ export class TicketChartComponent implements OnInit {
         this.filmName = res['content']['scheduleItem']['movieName']
         this.ms.getMovieDetail(res['content']['scheduleItem']['movieId'], uid).subscribe(r=>{
           if(r['success']) {
-            this.imgSrc =  "https://images.weserv.nl/?url=" + String(r['content']["posterUrl"])
+            // this.imgSrc =  "https://images.weserv.nl/?url=" + String(r['content']["posterUrl"])
+            this.imgSrc = String(r['content']["posterUrl"])
+
           } else {
             this.imgSrc =  'https://p1.meituan.net/movie/38dd31a0e1b18e1b00aeb2170c5a65b13885486.jpg@115w_158h_1e_1c'
           }

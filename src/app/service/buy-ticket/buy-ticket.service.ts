@@ -104,7 +104,9 @@ export class BuyTicketService {
                       time: scheduleRes['content']['startTime'],
                       price: Number(scheduleRes['content']['fare']) * order['tickets'].length,
                       hall: scheduleRes['content']['hallName'],
-                      posterUrl: "https://images.weserv.nl/?url=" + scheduleRes['content']['posterUrl'],
+                      // posterUrl: "https://images.weserv.nl/?url=" + scheduleRes['content']['posterUrl'],
+
+                      posterUrl: scheduleRes['content']['posterUrl'],
                     }
                   );
                   console.log(orderMsgs)

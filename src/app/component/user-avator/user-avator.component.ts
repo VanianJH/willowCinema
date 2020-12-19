@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
   providers: [{provide: BsDropdownConfig, useValue: {isAnimated: true, autoClose: true}}]
 })
 export class UserAvatorComponent implements OnInit {
-  imgUrl: string = "../../../assets/avator.png";
+  imgUrl: string = "https://vanianjh.github.io/willowCinema/assets/avator.png";
   hovered: true
   constructor(private router: Router) {
   }
@@ -18,6 +18,6 @@ export class UserAvatorComponent implements OnInit {
   }
 
   toUserCenter() {
-    this.router.navigateByUrl("/user/profile")
+    this.router.navigateByUrl("user/profile")
   }
 }

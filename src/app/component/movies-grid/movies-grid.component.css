@@ -10,7 +10,7 @@
     left: 20px;
     width: 48px;
     height: 48px;
-    background: url(../../../assets/play.png);
+    background: url('https://vanianjh.github.io/willowCinema/assets/play.png');
     opacity: 0;
     z-index: 99;
 }

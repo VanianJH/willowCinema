@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
         console.log(cardRes)
       }
 
-      this.router.navigateByUrl('/frontpage');
+      this.router.navigateByUrl('frontpage');
     } else {
       this.somethingWrong = true;
       this.wrongMsg = res['message'];

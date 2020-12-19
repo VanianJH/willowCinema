@@ -18,13 +18,13 @@ import { UserCardsComponent } from './component/user-cards/user-cards.component'
 import { VipCardComponent } from './component/vip-card/vip-card.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'frontpage', component: FrontpageComponent},
   {path: 'movies', component: MoviesComponent},
   {path: 'movie/:id', component: MovieDetailComponent},
   {path: 'movie/:id/buy/:sid', component: TicketBuyComponent},
   {path: 'test', component: VipCardComponent},
-  {path:'instant', component: InstantTestComponent},
+  {path: 'instant', component: InstantTestComponent},
   {path: 'user', component: UserCenterComponent},
   {path: 'user/orders', component: UserCenterComponent},
   {path: 'user/profile', component: ProfileComponent},
