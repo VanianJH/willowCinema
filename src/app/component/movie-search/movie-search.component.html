@@ -1,9 +1,12 @@
 <div class="form-inline movie-search-container">
-    <input #searchBox type="search" class="form-control"
-           placeholder="Search" aria-label="Search"
-           (input)="search(searchBox.value)"
-           (keypress)="($event.which===13?searchJump(searchBox.value):0)"
+    <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+        <input #searchBox type="search" class="form-control"
+        placeholder="Search" aria-label="Search"
+        (input)="search(searchBox.value)"
+        (keypress)="($event.which===13?searchJump(searchBox.value):0)"
     />
+      </nz-input-group>
+
     <!-- <ul class="movie-search-result">
         <li *ngFor="let movie of getMovies() | async">
         <a routerLink="/movie/{{movie.id}}" class="clearfix">
@@ -17,3 +20,7 @@
     </ul> -->
 </div>
 
+
+<ng-template #suffixIconButton>
+<button nz-button nzType="text" style="background-color: #ddd;" (click)="searchJump(searchBox.value)"><i nz-icon nzType="search"></i></button>
+</ng-template>

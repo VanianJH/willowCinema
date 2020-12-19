@@ -2,7 +2,7 @@
     list-style: none;
     padding-left: 0;
     padding-bottom: 16px;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #999;
 }
 
 .movielist-filters li {
@@ -27,5 +27,5 @@
 
 .movielist-filters li.selected a {
     color: #fff;
-    background-color: #dd6666;
+    background-color: #ed3931;
 }

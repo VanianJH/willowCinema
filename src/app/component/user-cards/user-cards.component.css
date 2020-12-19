@@ -2,6 +2,10 @@
     cursor: pointer;
 }
 
+.profile-title {
+    margin-top: 15px;
+}
+
 .postImg{
     height: 100px;
 }

@@ -29,7 +29,8 @@ export class MovieSearchComponent implements OnInit {
   }
 
   searchJump(term: string) {
-      this.ms.searchMovie(term)  
+    console.log(term)
+      this.ms.searchMovie(term, '', '')  
     this.router.navigateByUrl("movies");
   }
 }

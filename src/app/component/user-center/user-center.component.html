@@ -18,7 +18,7 @@
                         <div class="order-header">
                             <span class="order-date">2020-12-08</span>
                             <span class="order-id">订单号:22036132312{{order.orderId}}</span>
-                            <span class="del-order" data-orderid="22036132312"></span>
+                            <span class="del-order" (click)="confirmRefund(order.orderId)" data-orderid="22036132312"></span>
                         </div>
 
                         <div class="order-body">
@@ -28,7 +28,7 @@
 
                             <div class="order-content">
                                 <div class="movie-name">{{order.movieName}}</div>
-                                <div class="cinema-name">中广汪海国际影城</div>
+                                <div class="cinema-name">南大影院</div>
                                 <div class="hall-ticket">
                                     <span>{{order.hall}}</span>
                                     <span *ngFor="let ticket of order.tickets"
@@ -105,3 +105,12 @@
     </div>
 
 </div>
+<nz-modal
+      [(nzVisible)]="isVisible"
+      nzTitle="退款确认"
+      (nzOnCancel)="handleCancel()"
+      (nzOnOk)="handleOk()"
+      [nzOkLoading]="isOkLoading"
+    >
+      <p *nzModalContent>您确定退款吗？</p>
+</nz-modal>

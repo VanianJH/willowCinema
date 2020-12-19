@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
       this.router.navigateByUrl('frontpage');
     } else {
       this.somethingWrong = true;
-      this.wrongMsg = res['message'];
+      this.wrongMsg = '用户名或密码错误';
     }
   }
 

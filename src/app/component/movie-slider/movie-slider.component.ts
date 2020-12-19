@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 import { MoviesService } from 'src/app/service/movies/movies.service';
 import {Movie} from '../../interface/movie';
 import {MovieSearchService} from '../../service/movie-search/movie-search.service';
@@ -14,7 +15,8 @@ export class MovieSliderComponent implements OnInit {
   movies: Movie[];
 
   constructor(private ms: MovieSearchService, 
-    private movieService: MoviesService) {
+    private movieService: MoviesService,
+    private router: Router) {
   }
 
   ngOnInit(): void {
@@ -24,6 +26,10 @@ export class MovieSliderComponent implements OnInit {
 
   moviesFilter(ms) {
     return ms.map(m=>this.oneMovieFilter(m))
+  }
+
+  toMovie(id) {
+    this.router.navigateByUrl("/movie/"+id);
   }
 
   imgFilter(url: string) {

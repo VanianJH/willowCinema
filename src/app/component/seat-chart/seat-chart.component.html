@@ -34,12 +34,12 @@
   <div class="summary-bar">
     <div class="col-lg-12" >
       <div>
-        <h5>Total Selected : {{ cart?.selectedSeats?.length }}</h5>
-        <h5>Total Amount :&nbsp;&nbsp; {{cart.totalamount}} Rs</h5>
+        <h5>已选 : {{ cart?.selectedSeats?.length }}</h5>
+        <h5>总价 :&nbsp;&nbsp; {{cart.totalamount}} Rs</h5>
       </div>
     </div>
     <div class="col-lg-12 selected-seats">
-      <h5 class="col-lg-12 no-padding">Selected Seats : </h5>
+      <h5 class="col-lg-12 no-padding">已选座位 : </h5>
       <span *ngFor="let seatLabel of cart.selectedSeats" class="badge badge-primary">{{seatLabel}}</span>
     </div>
   </div>

@@ -2,6 +2,9 @@
     width: 1200px;
     margin: 0 auto;
 }
+.profile-title {
+    margin-top: 15px;
+}
 
 .form-save-btn {
     text-align: center;

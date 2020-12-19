@@ -6,8 +6,8 @@
 
           <div class="movie-poster">
             <img class="img-fluid" src="{{ movie.poster }}" alt="{{ movie.title }}"/>
-            <a href="javascript:void(0)" class="movie-play-trailer"
-               (click)="openModal(preview, getEmbedUrl(movie.trailer))"></a>
+            <!-- <a href="javascript:void(0)" class="movie-play-trailer"
+               (click)="openModal(preview, getEmbedUrl(movie.trailer))"></a> -->
           </div>
 
 
@@ -23,15 +23,15 @@
           <p class="movie-overview">{{ movie.overview }}</p>
           <div class="movie-meta">
             <dl class="movie meta-director">
-              <dt>Director:</dt>
+              <dt>导演:</dt>
               <dd>{{ movie.director }}</dd>
             </dl>
             <dl class="movie-meta-cast">
-              <dt>Starring:</dt>
+              <dt>演员:</dt>
               <dd>{{ movie.cast | join: ", " }}</dd>
             </dl>
             <dl class="movie-meta-runtime">
-              <dt>Running Time:</dt>
+              <dt>时长:</dt>
               <dd>{{ movie.runtime | minute }}</dd>
             </dl>
             <dl>
@@ -41,6 +41,7 @@
                    data-wish="false" data-score="" data-bid="b_gbxqtw6x">
                   <div>
                     <i class="icon wish-icon"></i>
+                    <!-- <span class="wish-msg" data-act="wish-click"> {{likeAmount}} {{likeMsg}}</span> -->
                     <span class="wish-msg" data-act="wish-click"> {{likeAmount}} {{likeMsg}}</span>
                   </div>
                 </a>
@@ -59,14 +60,14 @@
             class="movie-more-showtime"
             (click)="showAllShowtimes()"
             *ngIf="!showAllTimes"
-          >Show All Showtimes</a>
+          >选择场次</a>
 
           <a
             href="javascript:void(0)"
             class="movie-today-showtime"
             (click)="hideAllShowtimes()"
             *ngIf="showAllTimes"
-          >Hide All Showtimes</a>
+          >选择场次</a>
         </div>
       </div>
     </div>

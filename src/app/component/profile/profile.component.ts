@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { NzMessageService } from 'ng-zorro-antd/message';
 import { CookieService } from 'ngx-cookie-service';
 import { UserService } from 'src/app/service/User/user.service';
 
@@ -15,7 +16,8 @@ export class ProfileComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private userService: UserService,
-    private cookie: CookieService) {
+    private cookie: CookieService,
+    private message: NzMessageService) {
 
     this.checkoutForm = this.formBuilder.group({
       name: '',
@@ -113,7 +115,9 @@ export class ProfileComponent implements OnInit {
   saveMsg(v) {
     console.log(v)
     this.userService.saveUserProfile(JSON.parse(this.cookie.get('userMsg'))['id'], v).subscribe(res=>{
-      if(res['success']) {}
+      if(res['success']) {
+        this.message.success('保存成功！')
+      }
       else {}
     })
   }

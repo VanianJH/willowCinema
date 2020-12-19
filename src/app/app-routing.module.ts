@@ -16,21 +16,24 @@ import {RegisterComponent} from './component/register/register.component';
 import { CouponSelectComponent } from './component/coupon-select/coupon-select.component';
 import { UserCardsComponent } from './component/user-cards/user-cards.component';
 import { VipCardComponent } from './component/vip-card/vip-card.component';
+import { TermsServiceComponent } from './component/terms-service/terms-service.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
-  {path: 'frontpage', component: FrontpageComponent},
-  {path: 'movies', component: MoviesComponent},
-  {path: 'movie/:id', component: MovieDetailComponent},
-  {path: 'movie/:id/buy/:sid', component: TicketBuyComponent},
-  {path: 'test', component: VipCardComponent},
-  {path: 'instant', component: InstantTestComponent},
-  {path: 'user', component: UserCenterComponent},
-  {path: 'user/orders', component: UserCenterComponent},
-  {path: 'user/profile', component: ProfileComponent},
-  {path: 'user/cards', component: UserCardsComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent}
+  {path: 'frontpage', component: FrontpageComponent, data: {which: 0}},
+  {path: 'movies', component: MoviesComponent, data: {which: 1}},
+  {path: 'movie/:id', component: MovieDetailComponent, data: {which: 2}},
+  {path: 'movie/:id/buy/:sid', component: TicketBuyComponent, data: {which: 2}},
+  {path: 'test', component: VipCardComponent, data: {which: 2}},
+  {path: 'instant', component: InstantTestComponent, data: {which: 2}},
+  {path: 'user', component: UserCenterComponent, data: {which: 2}},
+  {path: 'user/orders', component: UserCenterComponent, data: {which: 2}},
+  {path: 'user/profile', component: ProfileComponent, data: {which: 2}},
+  {path: 'user/cards', component: UserCardsComponent, data: {which: 2}},
+  {path: 'login', component: LoginComponent, data: {which: 2}},
+  {path: 'register', component: RegisterComponent, data: {which: 2}},
+  {path: 'termsofservice', component: TermsServiceComponent, data: {which: 2}}
+
 ];
 
 @NgModule({

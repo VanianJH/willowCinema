@@ -4,6 +4,7 @@ import { BuyTicketService } from 'src/app/service/buy-ticket/buy-ticket.service'
 import { ActivatedRoute, Router } from '@angular/router';
 import { DOCUMENT } from '@angular/common';
 import { LoginService } from 'src/app/service/login/login.service';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-user-center',
@@ -15,7 +16,8 @@ export class UserCenterComponent implements OnInit {
   constructor(private buy: BuyTicketService,
     private cookie: CookieService,
     private route: ActivatedRoute, private router: Router,
-    private login: LoginService) { }
+    private login: LoginService,
+    private message: NzMessageService) { }
 
   orderMsgs: any[] = [];
 
@@ -35,6 +37,14 @@ export class UserCenterComponent implements OnInit {
       return '待支付'
     }
   }
+
+  confirmRefund(id) {
+    this.selectedID = id;
+
+    this.showModal()
+  }
+
+
 
   async payTicket( orderId, ticketIds) {
     const res = await this.buy.vipBuy(orderId, ticketIds, 0)
@@ -58,6 +68,37 @@ export class UserCenterComponent implements OnInit {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.router.onSameUrlNavigation = 'reload';
     this.router.navigate(['./'], { relativeTo: this.route, queryParamsHandling: 'preserve' });
+  }
+
+
+  isVisible = false;
+  isOkLoading = false;
+
+
+  selectedID: any;
+  showModal(): void {
+    this.isVisible = true;
+  }
+
+  async refund(id) {
+    const res = await this.buy.refund(String(id))
+    if (res['success']) {
+      this.message.success("退款成功!")
+    } else {
+      this.message.warning('退款失败')
+    }
+  }
+
+  handleOk(): void {
+    this.isOkLoading = true;
+    this.refund(this.selectedID);
+    this.isOkLoading = false;
+    this.isVisible = false;
+    this.reload()
+  }
+
+  handleCancel(): void {
+    this.isVisible = false;
   }
 
 }

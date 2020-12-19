@@ -54,6 +54,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { ChargeModalComponent } from './component/charge-modal/charge-modal.component';
+import { TermsServiceComponent } from './component/terms-service/terms-service.component';
 
 @NgModule({
   declarations: [
@@ -87,7 +88,8 @@ import { ChargeModalComponent } from './component/charge-modal/charge-modal.comp
     UserCardsComponent,
     CouponComponent,
     VipCardComponent,
-    ChargeModalComponent
+    ChargeModalComponent,
+    TermsServiceComponent
   ],
   imports: [
     BrowserModule,

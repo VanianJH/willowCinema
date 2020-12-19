@@ -51,13 +51,13 @@ export class MoviesComponent implements OnInit {
   changeCate(cate: string) {
     console.log(cate)
     this.selectedCate = cate;
-    this.ms.searchMoviePlugin(this.selectedCate==='全部'?'':this.selectedCate, this.selectedPlace==='全部'?'':this.selectedPlace);
+    this.ms.searchMovie('', this.selectedCate==='全部'?'':this.selectedCate, this.selectedPlace==='全部'?'':this.selectedPlace);
   }
 
   changePlace(place: string) {
     console.log(place)
     this.selectedPlace = place 
-    this.ms.searchMoviePlugin(this.selectedCate==='全部'?'':this.selectedCate, this.selectedPlace==='全部'?'':this.selectedPlace);
+    this.ms.searchMovie('', this.selectedCate==='全部'?'':this.selectedCate, this.selectedPlace==='全部'?'':this.selectedPlace);
 
   }
 

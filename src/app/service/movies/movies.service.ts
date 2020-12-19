@@ -10,7 +10,7 @@ import { baseUrl } from '../baseUrl';
   providedIn: 'root'
 })
 export class MoviesService {
-  headers = new HttpHeaders({ 'Content-Type': 'application/json'});
+  headers = new HttpHeaders({ 'Content-Type': 'application/json' });
   options = { headers: this.headers };
   getFrontPageMovies(num: number) {
     return this.http.get(
@@ -19,7 +19,7 @@ export class MoviesService {
   }
 
   movieListComponent: any;
-  setMovieListComponent(l){
+  setMovieListComponent(l) {
     this.movieListComponent = l
   }
   getMovieListComponent(l) {
@@ -28,13 +28,13 @@ export class MoviesService {
 
   getMovieDetail(movieId: string, userId: string) {
     return this.http.get(
-      baseUrl+'/movie/' + movieId + '/' + userId
+      baseUrl + '/movie/' + movieId + '/' + userId
     )
   }
 
   likeMovie(movieId: string, userId: string) {
     return this.http.post(
-      baseUrl+'/movie/' + movieId + '/like?userId=' + userId,
+      baseUrl + '/movie/' + movieId + '/like?userId=' + userId,
       {},
       this.options
     )
@@ -42,7 +42,7 @@ export class MoviesService {
 
   unlikeMovie(movieId: string, userId: string) {
     return this.http.post(
-      baseUrl+'/movie/' + movieId + '/unlike?userId=' + userId,
+      baseUrl + '/movie/' + movieId + '/unlike?userId=' + userId,
       {},
       this.options
     )
@@ -50,18 +50,18 @@ export class MoviesService {
 
   getMovieShowTimes(movieId: string) {
     return this.http.get(
-        baseUrl+'/schedule/search/audience?movieId='+ movieId
+      baseUrl + '/schedule/search/audience?movieId=' + movieId
     )
   }
-  
+
   moviesFilter(ms) {
     return ms.map(m => this.oneMovieFilter(m))
   }
   imgFilter(url: string) {
     const prefix = "https://images.weserv.nl/?url=";
-    const searchUrl  = "images.weserv.nl";
+    const searchUrl = "images.weserv.nl";
     let res;
-    if(url.search(searchUrl)===-1) {
+    if (url.search(searchUrl) === -1) {
       res = prefix + url
     } else {
       res = url
@@ -89,49 +89,43 @@ export class MoviesService {
     };
   }
 
-  searchedMovies: any=undefined;
+  searchedMovies: any = undefined;
   nowTerm: string = ""
   nowA: string = ""
   nowB: string = ""
 
-  getSearchMovies(){
-    if(this.searchedMovies!==undefined) {
+  getSearchMovies() {
+    if (this.searchedMovies !== undefined) {
       return of(this.searchedMovies)
     } else {
       return this.getFrontPageMovies(10)
     }
   }
-  
-  searchMovie(term: string) {
-    this.nowTerm = term;
+
+  searchMovie(a, b, c: string) {
+    if(a.length>0) {
+      this.nowTerm = a;
+    }
+    if(b.length>0) {
+      this.nowA = b;
+    }
+    if(c.length>0) {
+      this.nowB = c;
+    }
+
+    console.log(baseUrl + "/movie/search?keyword=" + this.nowTerm + "&type=" +this.nowA + "&region=" + this.nowB)
+
     this.http.get(
-      baseUrl+"/movie/search?keyword="+term+this.nowA+this.nowB
-    ).subscribe(res=>{
-      if(res['success']) {
-        this.searchedMovies =  res
+      baseUrl + "/movie/search?keyword=" + this.nowTerm + "&type=" +this.nowA + "&region=" + this.nowB
+    ).subscribe(res => {
+      if (res['success']) {
+        this.searchedMovies = res
         this.movieListComponent.getMovies()
       } else {
 
       }
     })
   }
-
-  searchMoviePlugin(a, b :string) {
-    this.nowA = a 
-    this.nowB = b
-    this.http.get(
-      baseUrl + "/movie/search?keyword="+this.nowTerm+a+b
-    ).subscribe(res=>{
-      if(res['success']) {
-        this.searchedMovies =  res
-        this.movieListComponent.getMovies()
-      } else {
-
-      }
-    })
-  }
-
-
 
   constructor(private http: HttpClient) { }
 }

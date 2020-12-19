@@ -133,7 +133,7 @@ td {
 }
 .order-table .showtime {
     font-size: 14px;
-    color: #f03d37;
+    /* color: #f03d37; */
 }
 
 .order-table .cinema-name {

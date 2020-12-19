@@ -4,6 +4,10 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~bs-stepper/dist/css/bs-stepper.min.css';
 
+.ant-input-group-addon {
+    background-color: #ddd !important;
+}
+
 .anticon, .anticon svg {
     display: inline-flex;
 }

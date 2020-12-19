@@ -50,6 +50,16 @@ export class BuyTicketService {
     return res;
   }
 
+  refund(id) {
+    const res = this.http.post(
+      baseUrl + "/ticket/refund/"+ id,
+      {},
+      this.options
+    ).pipe(timeout(8000), catchError(error => of({ 'message': 'Request timeout!' })))
+      .toPromise();
+    return res;
+  }
+
   getCoupon(ticketId) {
     return this.http.post(
       baseUrl + "/ticket/generateOrder?ticketIds=" + String(ticketId),
