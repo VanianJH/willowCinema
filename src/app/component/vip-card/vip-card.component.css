@@ -3,7 +3,9 @@
     /* border-radius: 12px; */
 }
 
-
+nz-row {
+    border: 0 !important;
+}
 
 .charge-modal{
     width: 100%;

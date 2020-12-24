@@ -42,7 +42,7 @@
                   <div>
                     <i class="icon wish-icon"></i>
                     <!-- <span class="wish-msg" data-act="wish-click"> {{likeAmount}} {{likeMsg}}</span> -->
-                    <span class="wish-msg" data-act="wish-click"> {{likeAmount}} {{likeMsg}}</span>
+                    <span class="wish-msg" data-act="wish-click">  {{likeMsg}}</span>
                   </div>
                 </a>
               </div>
@@ -58,16 +58,15 @@
           <a
             href="javascript:void(0)"
             class="movie-more-showtime"
-            (click)="showAllShowtimes()"
             *ngIf="!showAllTimes"
           >选择场次</a>
 
-          <a
+          <!-- <a
             href="javascript:void(0)"
             class="movie-today-showtime"
             (click)="hideAllShowtimes()"
             *ngIf="showAllTimes"
-          >选择场次</a>
+          >选择场次</a> -->
         </div>
       </div>
     </div>

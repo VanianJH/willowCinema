@@ -17,12 +17,16 @@
             <p class="movielist-overview">{{ movie.overview }}</p>
             <div class="movielist-meta">
                 <dl class="movielist-meta-cast">
-                    <dt>Starring:</dt>
+                    <dt class="actorDT">演员:</dt>
                     <dd>{{ movie.cast | join: ", " }}</dd>
                 </dl>
                 <dl class="movielist-meta-runtime">
-                    <dt>Running Time:</dt>
+                    <dt>时长:</dt>
                     <dd>{{ movie.runtime | minute }}</dd>
+                </dl>
+                <dl class="movielist-meta-runtime">
+                    <dt>热度:</dt>
+                    <dd>{{ movie.like_count >= 1 ?movie.like_count: 0  }} 人想看</dd>
                 </dl>
 
             </div>
@@ -33,7 +37,7 @@
                     [filterDate]="filterDate"
             ></app-showtimes>
 
-            <a href="javascript:void(0)"
+            <!-- <a href="javascript:void(0)"
                class="movelist-more-showtime"
                (click)="showAllShowtimes(movie.id)"
                *ngIf="!showAllTimes[movie.id]"
@@ -43,7 +47,7 @@
                class="movelist-today-showtime"
                (click)="hideAllShowtimes(movie.id)"
                *ngIf="showAllTimes[movie.id]"
-            >Hide All Showtimes</a>
+            >Hide All Showtimes</a> -->
         </div>
     </div>
 </div>

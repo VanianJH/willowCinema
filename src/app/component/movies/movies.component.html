@@ -14,5 +14,10 @@
             <a href="javascript:void(0)" (click)="changePlace(filter)">{{filter}}</a>
         </li>
     </ul>
+    <ul class="movielist-filters">
+        <li *ngFor="let filter of sorts" [class.selected]="filter[0] === selectedSort[0]">
+            <a href="javascript:void(0)" (click)="changeSorts(filter)">{{filter[0]}}</a>
+        </li>
+    </ul>
     <app-movie-list [filterDate]="selectedDate" [filterCate]="selectedCate"></app-movie-list>
 </div>

@@ -1,5 +1,8 @@
+.actorDT{
+    min-width: 2.1rem !important;
+}
 .movielist-data {
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #eee !important;
 }
 
 .movielist-poster {

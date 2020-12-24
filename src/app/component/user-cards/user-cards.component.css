@@ -141,7 +141,7 @@ p {
     padding: 0 18px;
 }
 .info-content {
-    border: 1px solid #e1e1e1;
+    /* border: 1px solid #e1e1e1; */
     position: relative;
 }
 .info-content .user-profile-nav {
@@ -151,7 +151,7 @@ p {
     width: 200px;
     background-color: #f4f3f4;
     text-align: center;
-    border-right: 1px solid #e1e1e1;
+    /* border-right: 1px solid #e1e1e1; */
 }
 .info-content .orders-container, .info-content .profile-container {
     float: left;
@@ -207,12 +207,12 @@ a {
     padding: 26px 0;
     color: #ec443f;
     font-size: 18px;
-    border-bottom: 1px solid #e1e1e1;
+    /* border-bottom: 1px solid #e1e1e1; */
     margin-bottom: 30px;
     margin-right: 40px;
 }
 .order-box {
-    border: 1px solid #e5e5e5;
+    /* border: 1px solid #e5e5e5; */
     margin: 0 40px 30px 0;
 }
 

@@ -4,12 +4,13 @@
 
 .btn:focus {
     outline: 0;
-    box-shadow: 0 0 0 0
+    box-shadow: 0 0 0 0;
 }
 
 #usr-avator {
     height: 30px;
     width: auto;
+    border-radius: 10px;
 }
 
 ul.dropdown-menu {

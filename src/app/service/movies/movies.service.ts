@@ -93,30 +93,37 @@ export class MoviesService {
   nowTerm: string = ""
   nowA: string = ""
   nowB: string = ""
+  nowC: string = ''
 
   getSearchMovies() {
     if (this.searchedMovies !== undefined) {
       return of(this.searchedMovies)
     } else {
-      return this.getFrontPageMovies(10)
+      this.searchMovie('default','default','default','default')
+      return of(this.searchedMovies)
     }
   }
 
-  searchMovie(a, b, c: string) {
-    if(a.length>0) {
+  searchMovie(a, b, c, d: string) {
+    if(a !== 'default') {
       this.nowTerm = a;
     }
-    if(b.length>0) {
+    if(b !== 'default') {
       this.nowA = b;
     }
-    if(c.length>0) {
+    if(c !== 'default') {
       this.nowB = c;
     }
+    if(d !== 'default') {
+      this.nowC = d;
+    }
 
-    console.log(baseUrl + "/movie/search?keyword=" + this.nowTerm + "&type=" +this.nowA + "&region=" + this.nowB)
+    console.log(baseUrl + "/movie/search?keyword=" + this.nowTerm + 
+                "&type=" +this.nowA + "&region=" + this.nowB +  "&sortBy=" + this.nowC )
 
     this.http.get(
-      baseUrl + "/movie/search?keyword=" + this.nowTerm + "&type=" +this.nowA + "&region=" + this.nowB
+      baseUrl + "/movie/search?keyword=" + this.nowTerm + "&type=" 
+              + this.nowA + "&region=" + this.nowB + "&sortBy=" + this.nowC 
     ).subscribe(res => {
       if (res['success']) {
         this.searchedMovies = res

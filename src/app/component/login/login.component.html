@@ -10,7 +10,7 @@
             <i class="fa fa-user"></i>
           </div>
           <div>
-            <h5 *ngIf="!hasName">Username</h5>
+            <h5 *ngIf="!hasName">用户名</h5>
             <input #name type="text" class="input" (keyup)="onKeyName(name.value)">
           </div>
         </div>
@@ -19,17 +19,17 @@
             <i class="fa fa-lock"></i>
           </div>
           <div>
-            <h5 *ngIf="!hasPass">Password</h5>
+            <h5 *ngIf="!hasPass">密码</h5>
             <input #password type="password" class="input" (keyup)="onKeyPass(password.value)"
               (keypress)="($event.which===13?login():0)" 
             />
           </div>
         </div>
-        <a href="register">Do not have an account?</a>
+        <a href="register">未注册?</a>
         <alert type="warning" *ngIf="somethingWrong">
           <strong>Warning!</strong> {{wrongMsg}}
         </alert>
-        <div id = "loginBtn" type="submit" class="btn" value="Login" (click)="login()">login</div>
+        <div id = "loginBtn" type="submit" class="btn" value="Login" (click)="login()">登录</div>
       </form>
     </div>
   </div>

@@ -2,13 +2,13 @@
     list-style: none;
     padding-left: 0;
     padding-bottom: 16px;
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid #eee !important;
 }
 
 .movielist-filters li {
     list-style: none;
     display: inline-block;
-    margin-right: 20px;
+    margin-right: 8px;
     margin-bottom: 5px;
 }
 
@@ -22,6 +22,7 @@
     padding-top: 6px;
     padding-bottom: 6px;
     border-radius: 3px;
+    font-size: 14px;
 }
 
 
