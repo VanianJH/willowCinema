@@ -29,7 +29,7 @@ export class ChargeModalComponent {
   }
 
   charge() {
-    if(this.bankCardId==='123123123' && this.bankCardPassWord==='123123' && Number(this.fare)>0) {
+    if(this.bankCardPassWord==='123123' && Number(this.fare)>0) {
       this.isCharging = true;
 
       this.userService.chargeCard(this.cardId, Number(this.fare)).subscribe(res=>{
